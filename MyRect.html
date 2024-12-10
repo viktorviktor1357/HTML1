@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Управляемый Двигающийся Кубик - MyRect</title>
+  <style>
+    #canvas {
+      background: #eeec;
+      display: block;
+      margin: 0 auto;
+    }
+
+    #scoreboard {
+      text-align: center;
+      margin: 10px auto;
+    }
+
+    #startButton {
+      display: block;
+      margin: 10px auto;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    table {
+      width: 50%;
+      border-top:#000000 ;
+      border-collapse: collapse;
+      text-align: center;
+      border: 1px solid #000000;
+    }
+
+    body {
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 style="text-align: center">Супер игра</h1>
+  <div style="text-align: center">Введите имя игрока: <input type="text" id="playerName" /></div>
+  <div id="scoreboard">
+    <p>Нажмите Старт для начала игры</p>
+    <p>кнопка → (движение вправо)__кнопка ← (движение влево)__кнопка ↑ (прыжок)</p>
+    <p>При касании стен начисляются очки</p>
+    <p>При касании красных препядствий очки снимаются</p>
+    <br>
+    <p>Счет: <span id="score">10</span></p>
+    <p>Время: <span id="time">120</span> сек</p>
+  </div>
+  <button id="startButton">Старт</button>
+  <canvas id="canvas" width="900" height="270"></canvas><br>
+
+  <table width="100%" cellspacing="0" cellpadding="5">
+    <thead>
+      <tr>
+        <td width="200" valign="top">Игрок</td>
+        <td valign="top">Счёт</td>
+      </tr>
+    </thead>
+    <tbody id="table">
+      
+    </tbody>
+  </table>
+
+
+  <script>
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+    var leftPressed = false;
+    var rightPressed = false;
+    var jumpPressed = false;
+    var jumpCount = 0;
+    var jumpLength = 40;
+    var jumpHeight = 0;
+    var playerWidth = 50;
+    var playerHeight = 50;
+    var x = canvas.width / 2;
+    var y = canvas.height - 35;
+    var paddleX = (canvas.width - playerWidth) / 2;
+
+    var score = 0;
+    var timeRemaining = 120;
+    var gameInterval, timerInterval;
+
+    var obstacles = [];
+    var obstacleWidth = 50;
+    var obstacleHeight = 50;
+
+    function keyRightHandler(e) {
+      if (e.keyCode === 39) rightPressed = true;
+      if (e.keyCode === 37) leftPressed = true;
+      if (e.keyCode === 38) jumpPressed = true;
+    }
+
+    function keyLeftHandler(e) {
+      if (e.keyCode === 39) rightPressed = false;
+      if (e.keyCode === 37) leftPressed = false;
+    }
+
+    function startGame() {
+      score = 10;
+      timeRemaining = 120;
+      document.getElementById("score").textContent = score;
+      document.getElementById("time").textContent = timeRemaining;
+
+      paddleX = (canvas.width - playerWidth) / 2;
+      obstacles = generateObstacles();
+
+      document.addEventListener("keydown", keyRightHandler, false);
+      document.addEventListener("keyup", keyLeftHandler, false);
+
+      clearGame();
+      gameInterval = setInterval(draw, 10);
+      timerInterval = setInterval(updateTimer, 1000);
+    }
+
+    function clearGame() {
+      clearInterval(gameInterval);
+      clearInterval(timerInterval);
+    }
+
+    function endGame() {
+      
+      document.getElementById("table").innerHTML +=`
+      <tr>
+        <td>${document.getElementById("playerName").value}</td>
+        <td>${score}</td>
+      </tr>
+      `
+      alert("Игра окончена! Счет: " + score);
+      clearGame();
+    }
+
+    function updateTimer() {
+      timeRemaining--;
+      document.getElementById("time").textContent = timeRemaining;
+      if (timeRemaining <= 0) {
+        endGame();
+        clearGame();
+      }
+    }
+
+    function generateObstacles() {// дописать
+      let obstaclePositions = [];
+      for (let i = 0; i < 3; i++) {
+        let obstacleX = generateRandom();
+        console.log(obstacleX);
+        obstacleX = checkOverlay(obstacleX, obstaclePositions);
+
+        console.log(obstacleX);
+        obstaclePositions.push({ x: obstacleX, y: canvas.height - obstacleHeight });
+        console.log(obstaclePositions);
+        console.log("_______")
+      }
+      console.log("_____________________________");//проверка
+      return obstaclePositions;
+    }
+
+    function generateRandom() {
+      do {
+        obstacleX_new = Math.floor(Math.random() * (canvas.width - obstacleWidth - 200)) + 100;
+      } while (
+        obstacleX_new <= paddleX + 100 &&
+        obstacleX_new >= paddleX - 100
+      );
+      return obstacleX_new
+    }
+
+    function checkOverlay(obstacleX_new, obstaclePositions) {
+      flag = true
+      obstaclePositions.forEach((obstacle) => {
+        if (obstacle.x + 70 > obstacleX_new && obstacleX_new > obstacle.x - 70) {
+          console.log("over");
+          obstacleX_new = generateRandom();
+          console.log(obstacle.x + "GH");
+          console.log(obstacleX_new);
+          obstacleX_new = checkOverlay(obstacleX_new, obstaclePositions);
+          return obstacleX_new
+          let flag = false
+        }
+      })
+      if (flag) {
+        return obstacleX_new;
+      }
+    }
+
+    function drawObstacles() {
+      ctx.fillStyle = "#FF0000";
+      obstacles.forEach((obstacle) => {
+        ctx.fillRect(obstacle.x, obstacle.y, obstacleWidth, obstacleHeight);
+      });
+
+    }
+
+    function checkCollisions() {
+      obstacles.forEach((obstacle) => {
+        if (
+          paddleX < obstacle.x + obstacleWidth &&
+          paddleX + playerWidth > obstacle.x &&
+          canvas.height - playerHeight - jumpHeight < obstacle.y + obstacleHeight &&
+          canvas.height - jumpHeight > obstacle.y
+        ) {
+          jumpPressed = false;
+          jumpCount = 0;
+          jumpHeight = 0;
+          score = Math.max(0, score - 1);
+          document.getElementById("score").textContent = score;
+          if (score == 0) { endGame() }
+          obstacle.x = Math.floor(Math.random() * (canvas.width - obstacleWidth));
+
+          paddleX = (canvas.width - playerWidth) / 2;
+          obstacles = generateObstacles();
+        }
+      });
+    }
+
+    function drawPlayer() {
+      ctx.beginPath();
+      ctx.rect(paddleX, canvas.height - playerHeight - jumpHeight, playerWidth, playerHeight);
+      ctx.fillStyle = "#000000";
+      ctx.fill();
+      ctx.closePath();
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      if (rightPressed && paddleX < canvas.width - playerWidth) {
+        paddleX += 4.5;
+      } else if (leftPressed && paddleX > 0) {
+        paddleX -= 4.5;
+      }
+
+      if (jumpPressed) {
+        jumpCount++;
+        jumpHeight = 4 * jumpLength * Math.sin((Math.PI * jumpCount) / jumpLength);
+        if (jumpCount > jumpLength) {
+          jumpCount = 0;
+          jumpPressed = false;
+          jumpHeight = 0;
+
+        }
+
+      }
+      if (paddleX <= 0 || paddleX + playerWidth >= canvas.width) {
+        score++;
+        document.getElementById("score").textContent = score;
+
+        paddleX = (canvas.width - playerWidth) / 2;
+        obstacles = generateObstacles();
+
+      }
+
+      drawObstacles();
+      drawPlayer();
+      checkCollisions();
+    }
+
+    document.getElementById("startButton").addEventListener("click", startGame);
+  </script>
+</body>
+
+</html>

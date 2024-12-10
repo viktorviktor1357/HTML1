@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>Заготовка</title>
+  <style>
+    .wrapper {
+      width: 1100px;
+      height: 2800px;
+      border: 2px solid grey;
+      margin: 5px auto;
+      padding: 5px;
+    }
+
+    .box {
+      width: 900px;
+      height: 400px;
+      margin: 5px auto;
+      background-color: bisque;
+    }
+
+    .h1,
+    .h2 {
+      text-transform: uppercase;
+      color: #a5251a;
+      text-align: center;
+      font-weight: bold;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .smal {
+      width: 400px;
+      background-color: rgb(245, 217, 151);
+      padding-bottom: 10px;
+      padding-left: 10px;
+      margin: 20px auto;
+    }
+
+    .big {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      
+    }
+
+    .red {
+      color: #a5251a;
+    }
+
+    .show {
+      height: 300px;
+      transition-duration: 400ms;
+      overflow: hidden;
+    }
+
+    .hide {
+      height: 200px;
+      overflow: hidden;
+    }
+    #image1,
+    #image2 {
+      display: none;
+      width: 135px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <h1>ПРАКТИЧЕСКАЯ РАБОТА mas№4(JS)</h1>
+    <h2>Цымбалов Жилина</h2>
+    <div class="box">
+      <div class="big">
+        <div class="smal">
+          <h1>task 1</h1>
+          <p>изначальный массив <span id="mas11"></span></p>
+          <p>revers  <span id="mas2"></span></p>
+          <p>slice <span id="mas3"></span></p>
+          <p>splice <span id="mas4"></span></p>
+          <input type="text" id="STR" placehold="введите предложения" autofocus><br>
+          <input type="text" id="STR2" placehold="введите предложения" autofocus><br>
+          <input type="text" id="STR3" placehold="введите предложения" autofocus><br>
+          <button onclick='task1()'>выполнить</button>
+          <button onclick="task2()">выполнить</button>
+          <button onclick="task3()">выполнить</button>
+          <button onclick="task4()">выполнить</button>
+          <p><span id="as" class="red"></span></p>
+          <script>
+            var trees = ["осина", "ель", "дуб", "береза", "сосна", "клен", "пихта"];
+            function task1() {
+                document.getElementById("mas11").innerHTML = trees.join("-"); 
+                console.log(trees);
+            }
+            function task2() {
+              let mas = ([...trees].reverse()).join("-");
+              document.getElementById("mas2").innerHTML = mas; 
+                
+            }
+            function task3() {
+              document.getElementById("mas3").innerHTML = [...trees].slice(parseInt(STR.value),parseInt(STR2.value)).join("-"); 
+
+            }
+            function task4() {
+              let mas = [...trees];
+              mas.splice(parseInt(STR.value),parseInt(STR2.value),STR3.value);
+              document.getElementById("mas4").innerHTML = mas.join("-");
+            }
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.box {
+			width: 960px;
+			height: 1000px;
+			margin: 5px auto;
+			background-color: rgb(116, 201, 201);
+		}
+	</style>
+</head>
+
+<body>
+	<div>
+		<div class="box">
+			<h1>task6</h1>
+			<h2>Площадь, периметр треугольника</h2>
+			<p>В поле ниже введите длины двух катетов</p>
+			<input type="number" id="num611" placeholder="введите число" autofocus>
+			<input type="number" id="num622" placeholder="введите число" autofocus>
+			<br>
+			<p>Итог вычислений</p>
+			<div id="text6"><span id="text61"></span></div><br>
+			<button onclick="getTreug()">вычислить</button>
+			<button onclick="myCler6()">очистить</button>
+			<script>
+				function getTreug() {
+					const num61 = parseInt(num611.value);
+					const num62 = parseInt(num622.value);
+					const rez61 = num61 * num62 / 2;
+					const rez62 = Math.hypot(num61, num62) + num61 + num62;
+					document.getElementById("text61").innerHTML = ("Площадь " + rez61 + ", Периметр " + rez62);
+					document.getElementById("text6").style.display = "block";
+				}
+				function myCler6() {
+					document.getElementById("text6").style.display = "none";
+				}
+			</script>
+		</div>
+	</div>
+</body>
+
+</html>

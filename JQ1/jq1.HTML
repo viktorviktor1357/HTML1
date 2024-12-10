@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        .wrapper {
+            width: 1100px;
+            height: 2800px;
+            border: 2px solid grey;
+            margin: 5px auto;
+            padding: 5px;
+        }
+
+        .box {
+            width: 900px;
+            height: auto;
+            margin: 5px auto;
+            background-color: bisque;
+        }
+
+        .h1,
+        .h2 {
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .smal {
+            width: 400px;
+            background-color: rgb(245, 217, 151);
+            padding-bottom: 10px;
+            padding-left: 10px;
+            margin: 20px auto;
+        }
+
+        .big {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+
+        }
+
+        .blue {
+            color: #0f5096;
+        }
+
+        .show {
+            height: 300px;
+            transition-duration: 400ms;
+            overflow: hidden;
+        }
+
+        .hide {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        #image1,
+        #image2 {
+            display: none;
+            width: 135px;
+            margin-top: 10px;
+        }
+
+        .green {
+            color: #1e8031;
+        }
+
+        header {
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        p {
+            margin: 10px;
+            padding: 10px;
+            width: 90%;
+            border: 2px solid gray;
+            background-color: white;
+        }
+
+        span {
+            color: brown;
+            font-size: 1.7em;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .block{
+            width: 90%;
+            background-color: aqua;
+            border: #0f5096;
+            margin: 1.8mm;
+            display: flex;
+            font-weight: 100%;
+        }
+
+        .span1{
+            background-color: aquamarine;
+            width: 50%;
+            font-size: 10px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>ПРАКТИЧЕСКАЯ РАБОТА №1(JQ)</h1>
+        <h2>Цымбалов Жилина</h2>
+        <div class="box">
+            <div class="big">
+                <div class="smal">
+                    <p class="par1"><span>1</span>lest1</p>
+                    <p class="par2"><span>2</span></p>
+                    <p class="par3"><span>3</span></p>
+                </div>
+                <div class="smal">
+                    <p class="par4"><span>4</span></p>
+                    <p class="par5"><span>5</span></p>
+                    <p class="par6"><span>6</span></p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="big">
+                    <div class="smal">
+                        <p class="par7"><span>7</span></p>
+                        <p class="par8"><span>8</span></p>
+                        <p class="par9"><span>9</span></p>
+
+                    </div>
+                    <div class="smal">
+                        <p class="par10"><span>10</span></p>
+                        <p class="par11"><span>11</span></p>
+                        <p class="par12"><span>12</span></p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="big">
+                        <div class="smal">
+                            <p class="par13"><span>13</span></p>
+                            <p class="par14"><span id="all">14</span></p>
+                            <p class="par15"><span>15</span></p>
+                        </div>
+                        <div class="smal">
+                            <p class="par16"><span>16</span></p>
+                            <p class="par17"><span>17</span></p>
+                            <p class="par18"><span>18</span></p>         
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+            //добавить ко всему lest(номер задания)
+
+
+    $(document).ready(function () {
+        //замена текста при нажатии
+        $('.par1').click(function () {
+            $(this).text('Это <span>просто</span> новый текст');
+        });
+        //замена с тегом
+        $('.par2').click(function () {
+            $(this).html('Это <span>просто</span> новый текст');
+        });
+        //добавление текста в конец
+        $('.par3').click(function () {
+            $(this).append('Это <span>просто</span> новый текст');
+        });       
+        //добавление в начало
+        $('.par4').click(function () {
+            $(this).prepend('Это <span>просто</span> новый текст');
+        });
+        //ДОбавление во вновь созданый блок
+        $('.par5').click(function () {
+            $(this).wrap('<div class="block"></div>');
+        });
+        //удаление содержимого
+        $('.par6').click(function () {
+            $(this).empty();
+        });
+        //удаление объекта
+        $('.par7').click(function () {
+            $(this).remove();
+        });
+        //добавление после объекта
+        $('.par8').click(function () {
+            $(this).after('<div class="block">hello</div>'); 
+        });
+        //добавление перед
+        $('.par9').click(function () {
+            $(this).before('<div class="block">hello</div>'); 
+        });
+        //перемешение объекта в объект
+        $('.par10').click(function () {
+            $(this).detach().prependTo(".par11"); 
+        });
+        //
+        $('.par12').click(function () {
+            $(this).css('color',"blue"); 
+        });
+        //оборачивание объекта
+        $('.par13').click(function () {
+            $("span").wrapAll('<siv class="sapan1"></div>'); 
+        });
+        //счет кол-во абзацов
+        var count = $ ("p").length
+        document.getElementById("all").innerHTML = count
+        
+   });
+</script>
+
+</html>

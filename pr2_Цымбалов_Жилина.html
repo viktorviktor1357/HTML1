@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>Заготовка</title>
+  <style>
+    .wrapper {
+      text-align: center;
+      width: 1000px;
+      height: 2600px;
+      background-color: #ffe4c4;
+      margin: 10 auto;
+      padding: 20px;
+      border: 5px solid grey;
+    }
+
+    .box {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 20px 20px;
+    }
+
+    .big {
+      background: #F0F8FF;
+      width: 45%;
+      height: 500px auto;
+      display: block;
+      padding: 20px 20px;
+    }
+
+    .smal {
+      background-color: #a5251a;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #fff;
+      font-size: 20px;
+    }
+
+    .h1,
+    .h2 {
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: bold;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+
+
+    .red {
+      color: #a5251a;
+    }
+
+    .show {
+      height: 300px;
+      transition-duration: 400ms;
+      overflow: hidden;
+    }
+
+    .hide {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    #image1,
+    #image2 {
+      display: none;
+      width: 135px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <h1>ПРАКТИЧЕСКАЯ РАБОТА №2(JS)</h1>
+    <h2>Цымбалов Жилина</h2>
+    <div class="box">
+      <div class="big">
+        <div class="smal">
+          <h1>задание 1</h1>
+        </div>
+        <span>Введите предложение не менее 3 слов и не более 20 слов</span>
+        <input type="text" id="words1" placehold="введите предложения" autofocus><br>
+        <button onclick="task1()">Запустить</button>
+        <button onclick="clean1()">Очистить</button>
+        <p><span id="result1" stule="color: red">Самое длинное слово:</span></p>
+        <script>
+          function clean1() {
+            document.getElementById('words1').value = '';
+            document.getElementById('result1').textContent = '';
+          }
+        </script>
+      </div>
+
+
+      <div class="big">
+        <div class="smal">
+          <h1>задание 2</h1>
+        </div>
+        <p><span>Введите длинную строку</span></p>
+        <input type="number" id="num2" placeholder="введите число слов" autofocus><br>
+        <input type="text" id="words2" placeholder="введите слова" autofocus><br>
+        <button onclick="task2_1()">Найти гласные</button>
+        <button onclick="task2_2()">Найти согласные</button>
+        <button onclick="clear2()">Перезагрузить</button>
+        <p>Количество гласных букв: <span id="result2_1"></span></p>
+        <p>Количество согласных букв: <span id="result2_2"></span></p>
+      </div>
+      <script>
+        document.getElementById('words2').oninput = () => {
+          let str2_ = document.getElementById("words2").value.split(' ');
+          if (str2_.length > num2.value) {
+            result2_1.textContent = "неправильное количество слов";
+            flag = false;
+          }
+          else{
+            result2_1.textContent = "";
+            flag = true;
+          }
+        };
+
+        function clear2() {
+			if (confirm('Вы точно хотите очистить поля?')) {
+				document.getElementById('num2').value = '';
+        document.getElementById('words2').value = '';
+				document.getElementById('result2_1').innerHTML = '';
+				document.getElementById('result2_2').innerHTML = '';
+
+			}}
+      </script>
+    </div>
+
+
+    <div class="box">
+      <div class="big">
+        <div class="smal">
+          <h1>задание 3</h1>
+        </div>
+        <span>Введите минимум 3 числа через запятую</span><br>
+        <input type="text" id="words3" placehold="введите числа" autofocus><br>
+        <button onclick="task3()">Найти</button>
+        <button onclick="clear3()">Очистить</button>
+        <P>Вы ввели: <span id="text3"></span></P>
+        <P><span id="result3"></span></P>
+      </div>
+      <script>
+        document.getElementById('words3').oninput = () => {
+          document.getElementById('text3').innerText = document.getElementById('words3').value;
+        };
+        function clear3() {
+          document.getElementById('words3').value;
+          document.getElementById('text3').innerHTML
+          document.getElementById('result3').innerHTML
+        }
+      </script>
+
+
+      <div class="big">
+        <div class="smal">
+          <h1>задание 4</h1>
+        </div>
+        <input type="text" id="str4" placehold="введите предложения" autofocus>
+        <button onclick="task4()">Запустить</button>
+        <button onclick="clear4()">Очистить</button>
+        <p><span id="text"></span></p>
+        <p>первые буквы предложения <span id="result4" style="color: #0000ff"></span></p>
+      </div>
+      <script>
+        document.getElementById('str4').value = '';
+        document.getElementById('result4').textContent = '';
+      </script>
+    </div>
+
+
+    <div class="box">
+      <div class="big">
+        <div class="smal">
+          <h1>task 5</h1>
+        </div>
+        <p><span>Введите минимум 8 числа, но не более 20 числа через запятую</span></p>
+        <input type="text" id="numInput5">
+        <button onclick="task5()">Запустить</button>
+        <p>Положительных <span style="color: #D00D20;" id="result5_1"></span><br></p>
+        <p>Отрицательных <span style="color: #0F5096;" id="result5_2"></span><br></p>
+        <p>Четных <span style="color: #1E8031;" id="result5_3"></span><br></p>
+        <p>Нечетных <span style="color: #802850;" id="result5_4"></span><br></p>
+        <button onclick="clear5()">Очистить</button>
+        <script>
+          function clear5() {
+            document.getElementById("result5_1").innerHTML = "";
+            document.getElementById("result5_2").innerHTML = "";
+            document.getElementById("result5_3").innerHTML = "";
+            document.getElementById("result5_4").innerHTML = "";
+          }
+        </script>
+      </div>
+
+
+      <div class="big">
+        <div class="smal">
+          <h1>задание 6</h1>
+        </div>
+        <P>Введите целое 4-значное число</P>
+        <input type="text" id="num6_1" placeholder="введите 4-х значное число" autofocus><br>
+        <button onclick="task6()">Запустить</button>
+        <button onclick="clear6()">Очистить</button>
+        <p>результаты деления: <span id="result6"></span></p>
+      </div>
+      <script>
+        function clear6() {
+          document.getElementById('result6').innerHTML = '';
+          document.getElementById('num6_1').value = '';
+        }
+      </script>
+    </div>
+  </div>
+  </div>
+
+  <script>
+    function task1() {
+      let input1 = document.getElementById("word1").value.split(',');
+      let oldWord = '';
+      if (input1.length > 3 & input1.length < 20) {
+
+        input1.forEach((elem) => {
+          if (elem.length > oldWord.length) {
+            oldWord = elem
+          }
+        })
+        document.getElementById('result1').textContent = 'Самое длинное слово: ' + oldWord;
+      } else {
+        document.getElementById('result1').textContent = 'Введите правильное количество слов';
+      }
+    }
+
+    function task2_1() {
+      if (flag){
+      var bukv1 = "ауоыиэяюёеАУОЫИЭЯЮЁЕAaEeIiOoUuYy";
+      var str2_1 = words2.value;
+      var glasn = -1;
+      for (var i = 0; i <= str2_1.length; i++) {
+        for (var j = 0; j <= bukv1.length; j++) {
+          if (str2_1[i] == bukv1[j]) {
+            glasn += 1;
+          }
+        }
+      }
+      document.getElementById("result2_1").innerHTML = glasn;
+    }}
+
+    function task2_2() {
+      if (flag){
+      var bukv2 = "БбВвГгДдЙйЖжЗзКкЛлМмНнПпРрСсТтФфХхЦцЧчШшЩщBbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz";
+      var str2_2 = words2.value;
+      var soglasn = -1;
+      for (var i = 0; i <= str2_2.length; i++) {
+        for (var j = 0; j <= bukv2.length; j++) {
+          if (str2_2[i] == bukv2[j]) {
+            soglasn += 1;
+          }
+        }
+      }
+      document.getElementById("result2_2").innerHTML = soglasn;
+    }}
+
+    function task3() {
+      let input3 = document.getElementById("words3").value.split(',');
+      if (input3.length < 4) {
+        document.getElementById('result3').innerHTML = "неправильное количество цифр"
+      }
+      else {
+        var input3_ = input3.sort((a, b) => a - b);
+        document.getElementById('result3').innerHTML = `
+      <p style="color: #EB2929;">Наибольшее из введенных значений: ${input3_[input3_.length - 1]}</p>
+      <p style="color: #0000FF;">Наименьшее из введенных значений: ${input3_[0]}</p>
+      `;
+      }
+    }
+
+    function task4() {
+      var str4_ = document.getElementById('str4').value;
+      document.getElementById('text').innerHTML = str4.value;
+      str4_ = str4_.split(' ')
+      if (str4_.length <= 3 & str4_.length >= 20) {
+        result.textContent = "неправильное количество слов";
+      } else {
+        console.log(str4_)
+        result4_ = str4_.map(st => st.charAt(0)).join(" ");
+        console.log(result4_)
+        document.getElementById("result4").innerHTML = result4_;
+      }
+    }
+
+
+    function task5() {
+      var num = (numInput5.value);
+      num = num.split(",");
+      console.log(num)
+      var flag = false
+      for (let i = 0; i < num.length; i++) {
+        if (num[i] > 99 || num[i] < 0) {
+          flag = true;
+        }
+        if (num[i] == "") {
+          flag = true;
+        }
+      }
+      if (num.length < 7 & num.length > 21) {
+        document.getElementById("result5_1").innerHTML = "ошибка";
+        console.log("num")
+        console.log(num.length)
+      }
+      else if (flag) {
+        document.getElementById("result5_1").innerHTML = "ошибка";
+        console.log("tryu")
+      }
+      else {
+        console.log(num)
+        var pol = num.filter(num => num >= 0).length;
+        var otri = num.filter(num => num < 0).length;
+        var chetn = num.filter(num => num % 2 === 0).length;
+        var nechetn = num.filter(num => num % 2 !== 0).length;
+        document.getElementById("result5_1").innerHTML = pol;
+        document.getElementById("result5_2").innerHTML = otri;
+        document.getElementById("result5_3").innerHTML = chetn;
+        document.getElementById("result5_4").innerHTML = nechetn;
+      }
+    }
+
+    function task6() {
+      var result6_ = num6_1.value;
+      if (result6_ % 2 === 0) {
+        var delenie = result6_ / 2;
+        document.getElementById("result6").innerHTML += " " + String(delenie);
+        while (delenie > 2) {
+          console.log(delenie);
+          delenie = parseInt(delenie / 2);
+          document.getElementById("result6").innerHTML += " " + String(delenie);
+
+        }
+      }
+    }
+
+  </script>
+</body>
+</html>

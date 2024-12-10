@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>каке-то таблици</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <style>
+    table {
+      table-layout: fixed;
+      width: 100%;
+      border-collapse: separate;
+      border: 3px solid black;
+    }
+
+    thead,
+    tfoot {
+      background: url(leopardskin.jpg);
+      color: white;
+      text-shadow: 1px 1px 1px black;
+    }
+
+    thead th,
+    tfoot th,
+    tfoot td {
+      background: linear-gradient(to bottom, rgb(0 0 0 / 10%), rgb(0 0 0 / 50%));
+      border: 3px solid purple;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>каке-то таблици</h1>
+  <table>
+    <caption>
+      A summary of the UK's most famous punk bands
+    </caption>
+    <thead>
+      <tr>
+        <th scope="col">Band</th>
+        <th scope="col">Year formed</th>
+        <th scope="col">No. of Albums</th>
+        <th scope="col">Most famous song</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Buzzcocks</th>
+        <td>1976</td>
+        <td>9</td>
+        <td>Ever fallen in love (with someone you shouldn't've)</td>
+      </tr>
+      <tr>
+        <th scope="row">The Clash</th>
+        <td>1976</td>
+        <td>6</td>
+        <td>London Calling</td>
+      </tr>
+
+      ... some rows removed for brevity
+
+      <tr>
+        <th scope="row">The Stranglers</th>
+        <td>1974</td>
+        <td>17</td>
+        <td>No More Heroes</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th scope="row" colspan="2">Total albums</th>
+        <td colspan="2">77</td>
+      </tr>
+    </tfoot>
+  </table>
+</body>
+
+<script>
+  let num = 12;
+let count = 0;
+let i = 1;
+while (i <= num) {
+    if (num % i === 0) {
+        count++;
+    }
+    i++;
+}
+console.log('Количество делителей числа' + num + ': ' + count);
+</script>
+</html>

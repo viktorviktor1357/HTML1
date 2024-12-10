@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>Заготовка</title>
+  <style>
+    .wrapper {
+      text-align: center;
+      width: 1000px;
+      height: 2600px;
+      margin: 10 auto;
+      padding: 20px;
+      border: 5px solid grey;
+    }
+
+    .box {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 20px 20px;
+    }
+
+    .big {
+      background-color: #ffe4c4;
+      width: 30%;
+      height: 500px auto;
+      display: block;
+      padding: 20px 10px;
+      color: #a5251a;
+    }
+
+    .smal {
+      background-color: #F0F8FF;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #000;
+    }
+
+
+    .h1,
+    .h2 {
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: bold;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    button {
+      padding: 7px 15px;
+      font-size: 10px;
+      background-color: #ffffff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <h1>ПРАКТИЧЕСКАЯ РАБОТА №4(JS)</h1>
+    <h2>Цымбалов Жилина</h2>
+    <div class="box">
+      <div class="big">
+        <h3>Задача 1: Работа с массивом</h3>
+        <div class="smal">
+          <p>Введите количество элементов массива (от 10 до 200):</p>
+          <input type="number" id="task1input" placeholder="введите число" autofocus><br>
+          <button onclick="task1_gen()">Сгенерировать</button><br>
+          <button onclick="task1_1()">Выполнить</button><br>
+          <button onclick="task1_2()">Выполнить</button><br>
+          <button onclick="task1_3()">Выполнить</button><br>
+          <button onclick="task1_4()">Выполнить</button><br>
+          <p>Сгенерированный массив: <span id="result1_gen"></span></p>
+          <p>массив без повторений: <span id="result1_1"></span></p>
+          <p>количество повторений: <span id="result1_2"></span></p>
+          <p>количество повторений: <span id="result1_3"></span></p>
+          <p>количество повторений: <span id="result1_4"></span></p>
+
+        </div>
+        <script>
+          document.getElementById('task1input').oninput = () => {
+            if (10 <= num1.value && num1.value <= 200) {
+              document.getElementById("result1_gen").innerHTML = "";
+            }
+            else {
+              document.getElementById("result1_gen").innerHTML = "неправильное число";
+            }
+          }
+        </script>
+      </div>
+      <div class="big">
+        <h3>Задача 2: Список товаров</h3>
+        <div class="smal">
+          <p>Введите количество товаров для отображения (от 1 до 40):</p>
+          <input type="number" id="task2input" placeholder="введите число" autofocus><br>
+          <button onclick="task2()">Массив1</button><br>
+          <p>Вы выбрали: <span id="result2"></span></p>
+        </div>
+        <script>
+          document.getElementById('task2input').oninput = () => {
+            if (1 <= num1.value && num1.value <= 40) {
+              document.getElementById("result2").innerHTML = "";
+            }
+            else {
+              document.getElementById("result2").innerHTML = "неправильное число";
+            }
+          }
+        </script>
+      </div>
+      <div class="big">
+        <h3>Задача 3: Генерация чисел</h3>
+        <div class="smal">
+          <p>Введите количество чисел в колонке (двузначное число):</p>
+          <input type="number" id="task3input" placeholder="введите число" autofocus><br>
+          <button onclick="task3_1()">Сгенерировать</button><br>
+          <button onclick="task3_2()">Перегрузить</button><br>
+          <p>Сгенерированный массив: <span id="result3"></span></p>
+        </div>
+      </div>
+      <script>
+        document.getElementById('task3input').oninput = () => {
+          if (1 <= num1.value && num1.value <= 99) {
+            document.getElementById("result3").innerHTML = "";
+          }
+          else {
+            document.getElementById("result3").innerHTML = "неправильное число";
+          }
+        }
+      </script>
+    </div>
+    <div class="box">
+      <div class="big">
+        <h3>Задача 4: Расчет возраста</h3>
+        <div class="smal">
+          <div>Введите дату своего рождения <input type="date" id="task4input"></div>
+          <div id="yourLife"></div>
+          <div id="happy_ha"></div>
+          <div id="happy"></div>
+          <button onclick="calculateBurthday(document.getElementById('task4input').value)">Рассчитать</button>
+        </div>
+      </div>
+      <div class="big">
+        <h3>Задача 5: Работа с числами</h3>
+        <div class="smal">
+          <p>Введите число от 2 до 7 (количество разрядов):</p>
+          <div style="display: flex;">
+            <input value="2" id="task5input" type="range" max="7" min="2">
+            <span id="task5span">2 разрядное число</span>
+            </div>
+            <div id="task5result"></div>
+            <button onclick="task5(document.getElementById('task5input').value)">Выполнить</button>
+        
+        </div>
+      </div>
+      <div class="big">
+        <h3>Задача 6: Анализ числа</h3>
+        <div class="smal">
+          <div>Введите натуральное число:</div>
+          <input id="task6input" type="number">
+          <div id="task6result"></div>
+          <button onclick="task6(document.getElementById('task6input').value)">Выполнить</button>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="big">
+        <h3>Задача 7: Поиск в массиве</h3>
+        <div class="smal">
+          <p>Введите количество элементов массива (не менее 8):</p>
+          <div>Введите размер массива:</div>
+          <input id="task7input" type="number">
+          <div>Введите число которое будет в массиве от 1 до 1000: <input id="task7input2" type="number"></div>
+          <div id="task7arr">Сгенерированный массив:</div>
+          <div id="task7result"></div>
+          <button onclick="task7(document.getElementById('task7input').value, document.getElementById('task7input2').value)">Выполнить</button>
+      
+        </div>
+      </div>
+      <div class="big">
+        <h3>Задача 8: Реверс текста</h3>
+        <div class="smal">
+          <p>Введите текст:</p>
+          <textarea id="task8input"></textarea>
+          <div id="task8result">Перевернутый текст: </div>
+          <button onclick="task8(document.getElementById('task8input').value)">Выполнить</button>
+      
+        </div>
+      </div>
+      <div class="big">
+        <h3>Заданеи 9: Выбор задачи</h3>
+        <div class="smal">
+          <div style="text-align: center;">Нажмите кнопку чтобы выбрать задачу</div>
+          <br>
+          <div style="border-radius: 15px; background-color: #b4e7f0; width: fit-content;" class="menu">
+              <button class="task-button">1</button>
+              <button class="task-button">2</button>
+              <button class="task-button">3</button>
+              <button class="task-button">4</button>
+              <button class="task-button">5</button>
+              <button class="task-button">6</button>
+              <button class="task-button">7</button>
+              <button class="task-button">8</button>
+            
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let mass1 = []
+    function task1_gen() {
+      mass1 = []
+      for (let i = 0; i < task1input.value; i++) {
+        let objeck1 = Math.floor(Math.random() * 20);
+        mass1.push(objeck1);
+      }
+      document.getElementById("result1_gen").innerHTML = mass1.join("-");
+    }
+
+    let mass_old = [];
+    function task1_1() {
+      mass_old = [...mass1];
+      for (i = 0; i < task1input.value; i++) {
+        for (j = 0; j < task1input.value; j++) {
+          if (mass_old[i] == mass_old[j] && i != j) { mass_old.splice(j, 1); }
+        }
+      }
+      document.getElementById("result1_1").innerHTML = mass_old.join("-");
+    }
+
+    function task1_2() {
+      task1_1()
+      result1_2.innerHTML = mass1.length - mass_old.length;
+    }
+
+    function task1_3() {
+      document.getElementById("result1_3").innerHTML = ([...mass1].reverse()).join("-");
+    }
+
+    function task1_4() {
+      document.getElementById("result1_4").innerHTML = ([...mass1].sort((a, b) => b - a)).join("-");
+    }
+
+    function task2() {
+      let mass2 = ["Смартфон", "Ноутбук", "Планшет", "Наушники", "Смартwatch", "Фitness-браслет", "Чехол для смартфона", "Кабель зарядки", "Powerbank", "Беспроводная зарядка", "Спейсер для ноутбука", "Клавиатура", "Мышь", "Экранная защита", "SD-карта", "Корпус для жесткого диска", "Дисковод внешний", "Переходник USB", "USB-накопитель", "Router", "Модум", "Концентратор USB", "Сетевой фильтр", "IP-камера", "GPS-навигатор", "Движок для ноутбука", "Веб-камера", "Лазерный принтер", "МФУ", "Проектор", "Флешка USB", "Кардридер", "Акустическая система", "Сканер", "Мультиметр", "Ключ frank", "Отвёртка", "Набор ножниц", "Лёд для коктейлей", "Прибор для чистки наушников"]
+      let mass2_new = []
+      let place2
+      for (let i = 0; i < task2input.value; i++) {
+        place2 = Math.floor(Math.random() * 40);
+        console.log(place2)
+        mass2_new.push(mass2[place2]);
+      }
+      result2.innerHTML = mass2_new.join(", ")
+    }
+    function task3_1() {
+      mass3 = []
+      for (let i = 0; i < task3input.value; i++) {
+        let objeck3 = Math.floor(Math.random() * 120);
+        mass3.push(objeck3);
+      }
+      document.getElementById("result3").innerHTML = mass3.join(", ");
+    }
+
+    function task3_2() {
+      c = confirm("Вы точно хотите очистить?")
+      if (c) {
+        result3.innerHTML = ''; num3.value = '';
+      }
+    }
+
+
+    function calculateBurthday(inputDateBirthday) {
+            let dateBurthday = ~~(new Date(inputDateBirthday.replace("-", ",")).getTime() / 1000)
+            let date = ~~(new Date().getTime() / 1000)
+            let liveTime = date - dateBurthday
+            let years = ~~(liveTime / 3600 / 24 / 365.24)
+            let mouths = ~~(liveTime / 3600 / 24 / 30.24)
+            let days = ~~(liveTime / 3600 / 24)
+            console.log(365 - parseInt(days))
+            console.log(parseInt(days))
+            if(parseInt(days / 365.25) > 0){
+            happy_ha.innerHTML =  "До дня рождения осталось: " + parseInt(days / 365.25)
+            }
+            else{
+              happy_ha.innerHTML = "До дня рождения осталось: " + parseInt(days)
+            }
+            document.getElementById('yourLife').innerHTML = "Вы прожили " + years + " лет или " + mouths + " месяцев или " + days + " дней";
+            if (0 == parseInt(days % 365.25)){  
+              happy.innerHTML = "С днём рождения"
+            }
+            else{ happy.innerHTML = ""}
+        }
+
+        function task5(capacity) {
+            let randomNumber = Math.floor(Math.random() * Number(("9".repeat(capacity)) - Number("1" + "0".repeat(capacity - 1))) + Number("1" + "0".repeat(capacity - 1)));
+            let summ = randomNumber.toString().split("").reduce((a, b) => Number(a) + Number(b));
+            let multiplicate = randomNumber.toString().split("").reduce((a, b) => Number(a) * Number(b));
+            let arithmeticMean = Number(summ) / Number(capacity);
+            document.getElementById('task5result').innerHTML = "Сгенерированное число: " + randomNumber + "<br>" + "Сумма его цифр: " + summ + "<br>" + "Произведение его цифр: " + multiplicate + "<br>" + "Среднее арифметическое его цифр: " + arithmeticMean;
+        }
+        document.getElementById('task5input').oninput = () => {
+            document.getElementById('task5span').innerHTML = document.getElementById('task5input').value + " разрядное число";
+        }
+
+        function task6(value) {
+            if (value % 1 !== 0) {
+                alert("Введите натуральное число");
+            } 
+            if (value.length > 1) {
+                document.getElementById('task6result').innerHTML = "Первая цифра: " + value.charAt(0) + "<br>" + "Последняя цифра: " + value.charAt(value.length - 1);
+            }
+            else {
+                document.getElementById('task6result').innerHTML = "Ваше число: " + value
+            }
+        }
+
+        function task7(size, value) {
+            let arr = [];
+            if (size >= 8 && size <= 135) {
+                for (let i = 0; i < size; i++) {
+                    arr.push(Math.floor(Math.random() * 1000));
+                }
+                document.getElementById('task7arr').innerHTML = "Сгенерированный массив:" + "<br>" + arr.join(", "); 
+                if (arr.filter(item => item == value).length > 0) {
+                    document.getElementById('task7result').innerHTML = "Число " + value + " есть в массиве";
+                } else{
+                    document.getElementById('task7result').innerHTML = "Данного числа " + value + " нет в массиве";
+                }
+            } else {
+                alert("Размер должен быть от 8 до 135");
+            }
+        } 
+
+        function task8(text) {
+            if (text.split(" ").length >= 2) {
+                let result = text.split(" ").reverse().map(item => item.split("").reverse().join("")).join(" ");
+                document.getElementById('task8result').innerHTML = "Перевернутый текст: " + "<br>" + result;
+            }
+        }
+
+        const buttons = document.querySelectorAll(".task-button");
+        buttons.forEach(button => {
+            button.onclick = () => {
+                const input = document.getElementById(`task${button.innerText}input`);
+                if (input) {
+                    input.focus();
+                }
+            }
+        });
+  </script>
+</body>
+
+</html>

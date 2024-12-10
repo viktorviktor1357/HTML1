@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <button onclick="getC()">click</button>
+    <script>
+    function getC(){    
+    var m = [];
+    m[0] = [1,2,3,4,7];
+    m[1] = [4,2,3,1,5];
+    m[2] = [8,7,6,5,8];
+    m[3] = [5,6,7,8,9];
+    m[4] = [6,4,2,5,6];
+    document.write("m:<br>")
+    for (var i = 0; i<5;i++){
+        for (var j = 0; j<5;j++){
+            document.write(m[i][j]+", ");
+
+   }
+   document.write("<br>"); 
+}
+    }
+</script>
+</body>
+</html>

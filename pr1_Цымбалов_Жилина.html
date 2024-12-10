@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>Заготовка</title>
+  <style>
+    .wrapper {
+      width: 1100px;
+      height: 2800px;
+      border: 2px solid grey;
+      margin: 5px auto;
+      padding: 5px;
+    }
+
+    .box {
+      width: 900px;
+      height: 400px;
+      margin: 5px auto;
+      background-color: bisque;
+    }
+
+    .h1,
+    .h2 {
+      text-transform: uppercase;
+      color: #a5251a;
+      text-align: center;
+      font-weight: bold;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .smal {
+      width: 400px;
+      background-color: rgb(245, 217, 151);
+      padding-bottom: 10px;
+      padding-left: 10px;
+      margin: 20px auto;
+    }
+
+    .big {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+
+    }
+
+    .red {
+      color: #a5251a;
+    }
+
+    .show {
+      height: 300px;
+      transition-duration: 400ms;
+      overflow: hidden;
+    }
+
+    .hide {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    #image1,
+    #image2 {
+      display: none;
+      width: 135px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <h1>ПРАКТИЧЕСКАЯ РАБОТА №1(JS)</h1>
+    <h2>Цымбалов Жилина</h2>
+    <div class="box">
+      <div class="big">
+        <div class="smal">
+          <h1>task 1</h1>
+          <h4>С экрана пользователем вводиться строка. После нажатия кнопки «Выполнить» изменяет первую букву каждого
+            слова в верхний регистр. Кнопка «Перегрузить» - позволяет очистить поле ввода для дальнейшего ввода
+            информации.</h4>
+          <input type="text" id="STR" placehold="введите предложения" autofocus><br>
+          <button onclick="task1()">выполнить</button>
+          <button onclick="document.getElementById('STR').value = '';
+            document.getElementById('as').textContent = '';">очистить</button>
+          <p><span id="as" class="red"></span></p>
+          <script>
+            function task1() {
+              const input = document.getElementById('STR').value;
+              const assssa = input.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+              document.getElementById('as').textContent = assssa;
+            }
+          </script>
+        </div>
+        <div class="smal">
+          <h1>task 2</h1>
+          <h4>С экрана пользователем вводиться длинная строка. Если символов больше 9, то только первые 9 символов
+            пишутся и добавляется в конец троеточие. Если символов в строке меньше или равно 9, то текст выводится как
+            он есть. Выводит итог в отдельное текстовое поле после после нажатия кнопки: "Выполнить". Кнопка
+            "Перегрузить" - очищает поле ввода для дальнейшего ввода информации.</h4>
+
+          <input type="text" id="str2" placehold="введите предложения" autofocus>
+          <button onclick="task2()">обрезать</button>
+          <button onclick="document.getElementById('str2').value = '';
+            document.getElementById('result2').textContent = '';">очистить</button>
+          <p><span id="result2" class="red"></span></p>
+          <script>
+            function task2() {
+              let str2_ = document.getElementById('str2').value;
+              let result2_ = document.getElementById('result2');
+              if (str2_.length > 9) {
+                result2_.innerText = str2_.slice(0, 9) + '...';
+              } else {
+                result2_.innerText = str2_;
+              }
+            }
+          </script>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="big">
+        <div class="smal">
+          <h1>task 3</h1>
+          <h4>С экрана пользователем вводиться длинная строка не менее 7 слов. Массив выносит из каждого слова первые
+            буквы и выводит итог в отдельное тестовое поле красным цветом после нажатия кнопки "Преобразовать". Копка
+            "Очистить" - очищает поле ввода для дальнейшего ввода информации.</h4>
+
+          <input type="text" id="str3" placehold="введите предложения" autofocus>
+          <button onclick="task3()">обрезать</button>
+          <button onclick="document.getElementById('str3').value = '';
+            document.getElementById('result3').textContent = '';">очистить</button>
+          <p><span id="result3" class="red"></span></p>
+          <script>
+            function task3() {
+              let str = document.getElementById('str3').value;
+              let result = document.getElementById('result3');
+              str = str.split(' ')
+              if (str.length <= 7) {
+                result.textContent = "менее 7 слов";
+              } else {
+                result.textContent = str.map(st => st.charAt(0)).join(" ");
+              }
+            }
+          </script>
+        </div>
+        <div class="smal">
+          <h1>task 4</h1>
+          <h4>8 небольших цитат мыслителей по 7-10 слов будут появляться на странице случайным образом после нажатия
+            кнопки: «Выполнить»</h4>
+
+          <button onclick="task4()">Выполнить</button>
+          <p id="citata" class="red"></p>
+          <script>
+            let citata = [
+              "Никто не ценит того, чего слишком много",
+              "Секрет успеха в том, чтобы начать.",
+              "Всегда очень тягостно новыми глазами увидеть то, с чем успел так или иначе сжиться.",
+              "Счастье — это не конечная цель.",
+              "Я обо всем подумаю потом, когда найду в себе силы это выдержать.",
+              "Кто вопросов не задает, тот лжи не слышит.",
+              "Если соблюдаешь мелкие правила, можно нарушать большие.",
+              "Отчаяться каждый может. А вот чтобы совладать с собой, нужно быть человеком."
+            ];
+            function task4() {
+              let randomIndex = Math.floor(Math.random() * citata.length);
+              console.log(randomIndex)
+              document.getElementById('citata').innerText = citata[randomIndex];
+            }
+          </script>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="big">
+        <div class="smal">
+          <h1>task 5</h1>
+          <h4>В текстовое поле вводится некоторый текст, который затем после по нажатию кнопки "Запустить" выводит
+            данный текст на экран по буквам, как самопечатающийся текст, как будто его набирает человек на клавиатуре.
+            Есть выставление скорости печатания данного текста при помощи ползунка.</h4>
+
+          <textarea id="inputText"></textarea>
+          <p>Скорость печати:<span id="rangeSpeed1">200</span><br></p>
+          <input type="range" id="rangeSpeed" min="1" max="1000" value="50">
+          <button onclick="task5()">Запустить</button>
+          <p id="resultText" class="red"></p>
+          <script>
+            function task5() {
+              document.getElementById('rangeSpeed1').innerHTML = document.getElementById('rangeSpeed').value;
+              let text = document.getElementById('inputText').value;
+              let speed = parseInt(document.getElementById('rangeSpeed').value);
+              console.log(speed)
+              let output = document.getElementById('resultText');
+              output.innerText = '';
+              let index = 0;
+              function type() {
+                if (index < text.length) {
+                  output.innerText += text.charAt(index);
+                  index++;
+                  setTimeout(type, (1500 - speed));
+                }
+              }
+
+              type();
+            }
+
+            document.getElementById('rangeSpeed').oninput = () => {
+              document.getElementById('rangeSpeed1').innerText = document.getElementById('rangeSpeed').value;
+            };
+          </script>
+        </div>
+        <div class="smal">
+          <h1>task 6</h1>
+          <h4>Позволяет скрывать длинный текст на веб-странице, а при необходимости открывать его после нажатия кнопки:
+            «Показать/скрыть»</h4>
+
+          <button id="toggleButton" onclick="toggleText()">Показать</button>
+          <div id="content">
+            <p>Солнце заглянуло сквозь облака, отбрасывая длинные тени по лугу.Нежный ветерок шуршал листья дуба,
+              шепчусь только в секретах </p>
+            <p>Старик сидел на качелях крыльца, его взгляд был зафиксирован на далеком горизонте.Воспоминания танцевали
+              в его глазах, как светлячки летним ночью.</p>
+          </div>
+
+          <script>
+            function toggleText() {
+              const content = document.getElementById('content');
+              const button = document.getElementById('toggleButton');
+
+              if (content.style.display === 'none') {
+                content.style.display = 'block';
+                button.innerText = 'Скрыть';
+              } else {
+                content.style.display = 'none';
+                button.innerText = 'Показать';
+              }
+            }
+          </script>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="big">
+        <div class="smal">
+          <h1>task 7</h1>
+          <h4>Скрывает и раскрывает изображение при наведении на ссылки: «Изображение 1», «Изображение 2».</h4>
+
+          <a href="#" onmouseover="showImage('image1')" onmouseout="hideImage('image1')">Изображение 1</a><br>
+          <a href="#" onmouseover="showImage('image2')" onmouseout="hideImage('image2')">Изображение 2</a>
+
+          <img id="image1" src="https://www.timberbeamcalculator.co.uk/images/span-tables/ceiling-joist-diagram.svg"
+            alt="Изображение 1">
+          <img id="image2"
+            src="https://avatars.mds.yandex.net/i?id=1b4a794ca96e719544fc91bd4a7d0e1a_l-4468494-images-thumbs&n=13"
+            alt="Изображение 2">
+
+          <script>
+            function showImage(id) {
+              document.getElementById(id).style.display = 'block';
+            }
+            function hideImage(id) {
+              document.getElementById(id).style.display = 'none';
+            }
+          </script>
+        </div>
+        <div class="smal">
+          <h1>task 8</h1>
+          <h4>Cчитывает системное время и выводит его на страницу блока и просит пользователя ввести в поле время в
+            часах и при нажатии кнопки «Приветствие» позволяет появляться тексту в зависимости от введенного времени.
+            Кнопка «Очистить» - позволяет очистить поле ввода для дальнейшего ввода информации.</h4>
+
+          <p>Текущее время: <span id="currentTime1"></span></p>
+
+          <p for="userTime">Введите время (часы):</p>
+          <input type="number" id="userTime" min="0" max="23">
+
+          <button onclick="helloButton()" id="">Приветствие</button>
+          <button onclick="document.getElementById('userTime').value = '';
+            document.getElementById('message').textContent = '';">очистить</button>
+
+          <p id="message"></p>
+        </div>
+        <script>
+          function helloButton() {
+            let userTime = parseInt(document.getElementById("userTime").value);
+            if (userTime >= 6 && userTime < 11) {
+              document.getElementById("message").textContent = "Доброе утро!";
+            } else if (userTime >= 11 && userTime < 14) {
+              document.getElementById("message").textContent = "Хороший день!";
+            } else if (userTime >= 14 && userTime < 15) {
+              document.getElementById("message").textContent = "Пора перекусить!";
+            } else if (userTime >= 15 && userTime < 17) {
+              document.getElementById("message").textContent = "Не спать! Работать!";
+            } else if (userTime >= 17 && userTime < 18) {
+              document.getElementById("message").textContent = "Пора домой!";
+            } else {
+              document.getElementById("message").textContent = "Введите корректное время!";
+            }
+          };
+          document.getElementById('userTime').oninput = () => {
+            document.getElementById('currentTime1').innerText = document.getElementById('userTime').value;
+          };
+        </script>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+</html>

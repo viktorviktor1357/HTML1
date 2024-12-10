@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+	<title>Простые задачи</title>
+	<style>
+	.h1{
+	text-transform: uppercase;
+	color: rgb(25, 0, 255);
+	text-align: center;
+	font-weight: bold;
+	font-family: "Times New Roman", Times, serif;
+	}
+	.wrapper{
+	width: 960px;
+	height: 1000px;
+	border: 2PX solid rgb(136, 32, 32);
+	margin: 5px auto;
+	padding: 5px;
+	}
+	.box{
+	width: 960px;
+	height: 1000px;
+	margin: 5px auto;
+	background-color: rgb(116, 201, 201);
+	}
+	.smal{
+	width: 400px;
+	background-color: rgb(7, 170, 170);
+	padding-bottom: 10px;
+	padding-left: 10px;
+	}
+	.big{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	}
+	.button{
+	text-transform: uppercase;
+	font-weight: 800;
+	padding: 7px;
+	margin: 10px;
+	}
+    .span{
+        color: rgb(112, 20, 89);
+        font-size: 1.3em;
+    }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+		<div class="box">
+			<h1>task1</h1>
+			<div class="big">
+				<div class="smal">
+					<h2>min1</h2>
+					<button onclick="document.getElementById('pic').src = '1.jpg';"> день</button>
+					<img src="1.jpg" alt="sun" id="pic">			
+					<button onclick="document.getElementById('pic').src = '2.jpg';"> ночь</button>
+					<script>
+				
+					</script>
+				</div>
+				<div class="smal">
+					<h2>min2</h2>
+				</div>
+				<div class="smal">
+					<h2>жение</h2>
+					<p>введите чпервое число<p>
+					<input type="text" id="num1" placehold="введите число" autofocus>
+					<br>
+					<p>введите 2 число<p>
+					<input type="text" id="num2" placehold="введите число" autofocus>
+                    <br>
+                    <button onclick="getSum()">сложить</button>
+                    <br>
+                    <p>Зезультат сложения<span id="result2"></span></p>
+				</div>
+                <script>
+                    function getSum(){
+                        document.getElementById("result2").innerHTML = parseInt(document.getElementById("num1").value)+parseInt(document.getElementById("num2").value);
+                    }
+                </script>
+				
+			</div>
+		</div>			
+	</div>
+		
+		<div class="box">
+			<h1>task2</h1>
+            <h2>приветствие</h2>
+            <p id="name1"></p>
+            <button onclick="hi3()"></button>
+            <script>
+                function hi3() {
+                    let name1 = prompt("ведите ваше имя");
+                    if(!name1){
+                        name1 = "незнакомец"
+                    }else{
+                        name1 = "привет" + " " + name1 +  "!";
+                    }
+                    document.getElementById('name1').innerHTML = name1;
+                }
+            </script>
+		</div>
+			
+		<div class="box">
+			<h1>task3</h1>
+            <h2>введите 2 числа</h2>
+            <div class="big">
+				<div class="smal">
+					<h2>больше</h2>
+					<p>введите первое число<p>
+					<input type="text" id="num3" placehold="введите число" autofocus>
+					<br>
+					<p>введите 2 число<p>
+					<input type="text" id="num4" placehold="введите число" autofocus>
+                    <br>
+                    <button onclick="getBig()">сравнить</button>
+                    <br>
+                    <p>Зезультат сложения <span id="result1"></span></p>
+				</div>
+                <script>
+                    function getBig(){
+					const value3 = parseInt(num3.value)
+					const value4 = parseInt(num4.value)
+					if (value3 > value4){
+                        document.getElementById("result1").innerHTML = value3;
+						}
+					else if (value3 < value4){
+                        document.getElementById("result1").innerHTML = value4;}
+					else{
+					document.getElementById("result1").innerHTML = "равны";
+					} 
+                    }
+                </script>
+				
+			</div>
+		</div>
+	<div>
+		<div class="box">
+			<h1>task4</h1>
+			<h2>Введите 3 числа</h2>
+			<h2>сложить, разделлить, минимальное</h2>
+			<div class="big">
+				<div class="smal">
+					<h1>введите числа</h1>
+					<p>1 number</p>
+					<input type="text" id="num6" placeholder="введите число" autofocus>
+					<br>
+					<p>2 number</p>
+					<input type="text" id="num7" placeholder="введите число" autofocus>
+					<br>
+					<p>3 number</p>
+					<input type="text" id="num8" placeholder="введите число" autofocus>
+					<br>
+					<button onclick="getSum2()&getPars()">сумма</button>
+                    <br>
+                    <p>Зезультат сложения <span id="result3"></span></p>
+					<br>
+					<button onclick="getRazn()">разность</button>
+					<br>
+					<p>Результат вычитания <span id="result4"></span></p>
+					<br>
+					<button onclick="getMin()">меньшее</button>
+					<br>
+					<p>Меньшее <span id="result5"></span></p>
+					<br>
+				</div>
+				<script>
+					function getSum2(){
+						const value6 = parseInt(num6.value);
+						const value7 = parseInt(num7.value);
+						const value8 = parseInt(num8.value);
+						document.getElementById("result3").innerHTML = (value6 + value7 + value8);
+					}
+					function getRazn(){
+						const value6 = parseInt(num6.value);
+						const value7 = parseInt(num7.value);
+						const value8 = parseInt(num8.value);
+						document.getElementById("result4").innerHTML = (value6 - value7 - value8);
+					}
+					function getMin(){
+						const value6 = parseInt(num6.value);
+						const value7 = parseInt(num7.value);
+						const value8 = parseInt(num8.value);
+						if (value6 < value7 & value6 < value8){
+								document.getElementById("result5").innerHTML = value6;
+						}
+						else if (value7 < value6 & value7 < value8){
+							
+								document.getElementById("result5").innerHTML = value7;
+							
+						}
+						else if (value8 < value6 & value8 < value7){
+							
+								document.getElementById("result5").innerHTML = value8;
+							
+						}
+						else{
+							document.getElementById("result5").innerHTML = "равны";
+						}
+					}
+				</script>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div>
+		<div class="box">
+			<h1>task5</h1>
+			<h2>Степень числа</h2>
+			<p>в поле ниже введите целое число</p>
+			<input type="text" id="num10" placeholder="введите число" autofocus>
+			<span>Введите степень</span>
+			<input type="text" id="step10" placeholder="введите число" autofocus>
+			<br>
+			<p>Итог вычислений <span id="rez"></span></p>
+			<br>
+			<button onclick="getNum1()">меньшее</button>
+			<button onclick="myCler()">Стереть</button>
+			<script>
+				function getNum1() {
+					const num1 = parseInt(num10.value);
+					const step1 = parseInt(step10.value);
+					const rez2 = Math.pow(num1, step1);
+					document.getElementById('rez').innerHTML = (rez2);
+				}
+				function myCler() {
+					document.getElementById('rez').innerHTML = "";
+					document.getElementById('step10').value = "";
+					document.getElementById('num10').value = "";
+				}
+			</script>
+		</div>
+	</div>	
+	<div>
+		<div class="box">
+			<h1>task6</h1>
+			<h2>Площадь, периметр треугольника</h2>
+			<p>В поле ниже введите длины двух катетов</p>
+			<input type="number" id="num611" placeholder="введите число" autofocus>
+			<input type="number" id="num622" placeholder="введите число" autofocus>
+			<br>
+			<p>Итог вычислений</p>
+			<div id="text6"><span id="text61"></span></div><br>
+			<button onclick="getTreug()">вычислить</button>
+			<button onclick="myCler6()">очистить</button>
+			<script>
+				function getTreug(){
+					const num61 = parseInt(num611.value);
+					const num62 = parseInt(num622.value);
+					const rez61 = num61*num62/2;
+					const rez62 = Math.hypot(num61,num62)+num61+num62;
+					document.getElementById("text61").innerHTML=("Площадь "+rez61+", Периметр "+rez62);
+					document.getElementById("text6").style.display = "block";
+				}
+				function myCler6() {
+					document.getElementById("text6").style.display = "none";
+				}
+			</script>
+		</div>	
+	</div>
+</body>
+</html>

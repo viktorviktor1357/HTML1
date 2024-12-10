@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        canvas{
+            border: 1px solid black;
+        }
+    </style>
+    <canvas id="can" width="400px" height="400px"></canvas>
+    <canvas id="can2" width="400px" height="400px"></canvas>
+    <script>
+        var canvas = document.getElementById('can');
+        var context = canvas.getContext('2d');
+        context.beginPath();
+        context.moveTo(20,20);
+        context.lineTo(380,20);
+        context.stroke();
+        context.closePath();
+
+        context.beginPath();
+        context.moveTo(20,40);
+        context.lineWidth = 10;
+        context.lineTo(380,40);
+        context.stroke();
+        context.closePath();
+
+        context.beginPath();
+        context.moveTo(200,60);
+        context.strokeStyle = "rgb(16, 155, 252)";
+        context.lineWidth = 5;
+        context.lineTo(200,250);
+        context.stroke();
+        context.closePath();
+
+
+        context.beginPath();
+        context.moveTo(220,60);
+        context.strokeStyle = "rgb(16, 155, 252)";
+        context.lineWidth = 20;
+        context.lineCap = "round";
+        context.lineTo(220,250);
+        context.stroke();
+        context.closePath();
+
+        var canvas2 = document.getElementById('can2');
+        var context = canvas2.getContext('2d');
+        context.beginPath();
+        context.strokeRect(10,20,80,80);  
+        context.closePath(); 
+
+        context.beginPath();
+        context.fillRect(110,20,80,80);  
+        context.closePath();
+
+        context.beginPath();
+        context.fillStyle = "orange";
+        context.fillRect(210,20,80,80);  
+        context.closePath();
+
+        context.beginPath();
+        context.fillStyle = "red";
+        context.fillRect(310,20,80,80);  
+        context.clearRect(310,20,40,80);
+        context.closePath();
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>Заготовка</title>
+  <style>
+    .wrapper{
+	width: 960px;
+	height: 1000px;
+	margin: 5px auto;
+	padding: 5px;
+    }
+
+    .box{
+	width: 960px;
+	height: 1000px;
+	margin: 5px auto;
+	background-color: rgb(116, 201, 201);
+    }
+
+    .h1{
+	text-transform: uppercase;
+	color: rgb(25, 0, 255);
+	text-align: center;
+	font-weight: bold;
+	font-family: "Times New Roman", Times, serif;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="box">
+      <h1> task 1</h1>
+      <h2>списки</h2>
+      <h1>введите числа</h1>
+      <p>значения <span id="rez1"></span></p><br>
+      <button onclick="spis()">kликни</button>
+    </div>
+    <script>
+      function spis() {
+        let num = [10, 20, 30, 50, 235, 3000];
+        var re = "";
+        for(let i = 0; i<num.length; i++){
+          let numIN = String(num[i])
+          if (numIN[0]== "1" || numIN[0]== "2" || numIN[0]== "5"){
+            re += num[i]+" "; 
+          }
+        }
+        document.getElementById('rez1').innerHTML = (re);
+      }
+    </script>
+
+    <div class="box">
+      <h1> task 2 </h1>
+      <h2>списки</h2>
+      <p>значения <span id="rez2"></span></p><br>
+      <button onclick="strok()">kликни</button>
+    </div>
+    <script>
+      function strok(){
+        let num = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        var re = "";
+        for(let i = 0; i<num.length; i++){
+          re += num[i]+"-";
+        }
+        document.getElementById('rez2').innerHTML += (re);
+      }
+    </script>
+  </div>
+
+
+</body>
+
+</html>

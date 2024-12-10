@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Jq2</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="block1">
+      <div class="logo">
+        <h1>Практическая работа №3</h1>
+        Разработчики: Цымбалов и Жилина СИП 213
+        <h1 id="logotxt">Гороскоп</h1>
+      </div>
+      <div class="mainblock">
+        <div class="slider">
+          <button class="mainbt" id="mainleftbutton" onclick="left()">
+            << </button>
+              <div id="mainphotos">
+
+                <img class="centerphoto"
+                  src="https://avatars.mds.yandex.net/get-entity_search/2304479/993138934/S122x122Smart_2x"
+                  alt="Изображение 2" id="center" />
+
+
+                <button class="mainbt" id="mainrightbutton" onclick="right()">>></button>
+              </div>
+        </div>
+      </div>
+    </div>
+    <div class="companyblock">
+      <div class="big">
+        <div class="smal">
+          <h1>Хотите знать о себе</h1>
+        </div>
+        <div class="smal">
+          <button onclick="yes1()" id="but"></button><span> да</span>
+          <button onclick="no1()" id="but"></button><span> нет</span>
+        </div>
+        <div class="smal">
+          <h1>по году или по знаку зодиака?</h1>
+        </div>
+        <div class="smal">
+          <button onclick="year()" id="but"></button><span> По дате</span>
+          <button onclick="zodiak()" id="but"></button><span> По Зодиаку</span>
+        </div>
+      </div>
+    </div>
+    <div class="box" id="b1">
+      <div class="big" id="big1">
+        <div class="smal">
+          <h1>Введите год рождения</h1>
+          <div style="border: 2px solid; padding: 5px 5px;"><input type="date" id="time"></div><br>
+          <button onclick="dategod()">Подтвердить</button>
+        </div>
+        <div class="smalImg"></div>
+        <img src="" id="imgy">
+        <h1 id="texty"></h1>
+      </div>
+      <div class="big" id="big2">
+        <div class="smal">
+          <h1>Введите год рождения</h1>
+          <div style="border: 2px solid; padding: 5px 5px;"><input type="date" id="time"></div><br>
+          <button onclick="dategod()">Подтвердить</button>
+        </div>
+      <div class="smalImg">
+        <h3 id="textz"> asdasda</h3>
+        <img src="https://avatars.dzeninfra.ru/get-zen_doc/9529784/pub_644bb6b0a7f69f254cc2419d_644bb6b401c9812cc7c4782f/scale_1200" alt="Изображение 2" id="imgy">
+      </div>
+      </div>
+    </div>
+    <div class="box" id="b2">
+      <div class="big">
+        <div class="smal">
+          <h1>Хотите ввести новую дату?</h1>
+        </div>
+        <div class="smal">
+          <button onclick="yes2()" id="but"></button><span> да</span>
+          <button onclick="no2()" id="but"></button><span> нет</span>
+        </div>
+        <div class="smal">
+          <button onclick="clean()">очистить</button>
+          <button onclick="save()">печать</button>  
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script src="cod.js"></script>
+
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang = "ru">
+<head>
+<meta charset = "UTF-8">
+<title>Знакомство с js</title>
+<style>
+	h1{
+		color: blue;
+		font-weight: bold;
+		text-align: center;}
+	button{
+		text-transform: uppercase;
+		padding: 3px;
+		margin: 10px;
+		font-weight: bold;
+		border-radius: 7px;
+		}
+	#box{
+			width: 200px;
+			height: 200px;
+			background-color: blue;
+			margin: 0 auto;
+		}
+	#container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 300px;
+	}
+
+	 .block {
+		width: 100px;
+		height: 100px;
+		background-color: blue;
+		margin: 0 auto;
+		cursor: pointer;
+		margin: 10px auto;
+	}
+
+	 #text {
+		font-size: 3xp;
+		margin-bottom: 20xp;
+	}
+</style>
+<body>
+<h1> Скрыть показать</h1>
+<p> Привет!</p>
+<p id="text1"> Хорошего дня =)</p>
+<br>
+
+<button onclick="document.getElementById('text1').style.display = 'none'"> скрыть </button>
+<button onclick="inl1();"> Показать</button>
+<script>
+	function inl1(){
+	document.getElementById('text1').style.display = "inline";
+	}
+</script>
+<h1> Случайное число</h1>
+<p> Будем генерировать число </p>
+<span> Сгенерированное число: </span>
+<span id="rand1" style="color: red; font-weight: bold;"></span>
+<br>
+<button onclick="rand2();"> генерировать</button>
+<script>
+	function rand2(){
+		document.getElementById('rand1').innerHTML = Math.ceil(Math.random()*100);
+	}
+	</script>
+<hr>
+<h1> Мой возраст</h1>
+<span> Я живу </span>
+<span id="age1"></span>
+<span>секунд </span>
+<button onclick="age2();"> Посчитай </button>
+<script>
+	function age2(){
+	var secMin = 60;
+	var minHour = 60;
+    var secHour = secMin * minHour;
+    var hourDay = 24;
+    var daySec = hourDay * secHour;
+ 	var dayMin = hourDay * minHour;
+	var dayYear = 365;
+	var hourYear = dayYear * hourDay;
+	var minYear = hourYear * minHour;
+	var secYear = minYear * secMin;
+	var myAge = prompt("Введите Ваш возраст: ")
+	document.getElementById('age1').innerHTML = secYear * myAge;
+	}
+</script>
+<h1> Приветствие </h1>
+<div id = "box" onmouseover = "one();" onmouseout = "two();"> </div> 
+<script>
+	function one(){
+	alert("Вы навели мышь");
+	}
+	function two(){
+	 alert("Вы убрали мышь")
+	}
+</script>
+<div id="text3">Текст</div>
+
+	<div id="container">
+		<div class="block" onmouseover="hideText()" id="block1"></div>
+		<div class="block" onmouseover="showText()" id="block2"></div>
+		<div class="block" onclick="showTextInBlock()"  id="block3"></div>
+	</div>
+
+	<script>
+
+		function hideText() {
+			document.getElementById("text3").style.display = "none";
+		}
+
+		function showText() {
+				document.getElementById("text3").style.display = "block";
+		}
+		function showTextInBlock() {
+			document.getElementById("block3").innerHTML = "Текст";
+		}
+
+	</script>
+</body>
+</head>
+</html>

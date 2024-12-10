@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>Заготовка</title>
+  <style>
+    .wrapper {
+      width: 1100px;
+      height: 2800px;
+      border: 2px solid grey;
+      margin: 5px auto;
+      padding: 5px;
+    }
+
+    .box {
+      width: 900px;
+      height: auto;
+      margin: 5px auto;
+      background-color: bisque;
+    }
+
+    .h1,
+    .h2 {
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: bold;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .smal {
+      width: 400px;
+      background-color: rgb(245, 217, 151);
+      padding-bottom: 10px;
+      padding-left: 10px;
+      margin: 20px auto;
+    }
+
+    .big {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+
+    }
+
+    .blue {
+      color: #0f5096;
+    }
+
+    .show {
+      height: 300px;
+      transition-duration: 400ms;
+      overflow: hidden;
+    }
+
+    .hide {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    #image1,
+    #image2 {
+      display: none;
+      width: 135px;
+      margin-top: 10px;
+    }
+
+    .green {
+      color: #1e8031;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <h1>ПРАКТИЧЕСКАЯ РАБОТА №3(JS)</h1>
+    <h2>Цымбалов Жилина</h2>
+    <div class="box">
+      <div class="big">
+        <div class="smal">
+          <h1>task 1</h1>
+          <h4>С экрана пользователем вводиться четырехзначное число и однозначное число. Делить первое число на второе столько раз, пока результат деления не станет меньше 50. </h4><br>
+          <input type="text" id="num1" placeholder="введите 4-х значное число" autofocus><br>
+          <input type="text" id="num2" placeholder="введите 1 значное число" autofocus><br>
+          <button onclick="task1()">Выполнить</button>
+          <button
+            onclick="document.getElementById('result1_1').innerHTML = '';
+            document.getElementById('result1_2').innerHTML = '';document.getElementById('result1_3').innerHTML = '';document.getElementById('num1').value = '';document.getElementById('num2').value = '';">Очистить</button>
+          <p><span id="result1_1"></span></p>
+          <p><span id="result1_2"></span></p>
+          <p><span id="result1_3"></span></p>
+        </div>
+
+        <div class="smal">
+          <h1>task 2</h1>
+          <h4>Из поселка в город выехал мотоциклист со скоростью от 10 до 100 км/ч. В то же время ему на встречу выехал велосипедист со скоростью от 10 до 35 км/ч. Они встретились через количество минут от 10 до 90. Выводит расстояние от города до поселка.</h4><br>
+          <input type="number" id="v1" placeholder="скрорость мотоцикла" autofocus><br>
+          <input type="number" id="v2" placeholder="скрорость велосипедиста" autofocus><br>
+          <input type="number" id="t1" placeholder="время" autofocus><br>
+          <button onclick="task2()">Выполнить</button>
+          <button
+            onclick="document.getElementById('result2_1').innerHTML = '';document.getElementById('v1').value = '';document.getElementById('v2').value = '';document.getElementById('t1').value = '';">Очистить</button>
+          <p><span class="blue" id="result2_1"></span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="big">
+        <div class="smal">
+          <h1>task 3</h1>
+          <h4>Вводиться двузначное число, которое определяет количество случайно генерируемых чисел. Числа генерируются в пределах от 1 до 120.</h4><br>
+          <input type="number" id="num3" placeholder="кол-во чисел" autofocus><br>
+          <button onclick="task3()">Выполнить</button>
+          <button
+            onclick=" document.getElementById('result3_1').innerHTML = '';document.getElementById('num3').value = '';">Очистить</button>
+          <p><span class="blue" id="result3_1"></span></p>
+        </div>
+
+        <div class="smal">
+          <h1>task 4</h1>
+          <h4>Ввести в поле ввода 8 случайных чисел. Подсчитать:положительных, отрицательных и четных, нечетных. Выводит столбец тех элементов массива, которые больше 3-х, но меньше 8. Числа вводятся в пределе от 0 до 99.</h4>
+          <br><input type="text" id="num4" placeholder="кол-во чисел" autofocus><br>
+          <button onclick="task4()">Выполнить</button>
+          <button
+            onclick=" document.getElementById('result4_1').innerHTML = '';document.getElementById('result4_2').innerHTML = ''; document.getElementById('num4').value = '';">Очистить</button>
+          <p><span id="result4_1"></span></p>
+          <p><span id="result4_2"></span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="big">
+        <div class="smal">
+          <h1>task 5</h1>
+          <h4>Объединяющий три массива цифр, вводить массив через ", " в порядке убывания их значений через пробел.</h4>
+          <br>
+          <p>массив 1</p>
+          <input type="text" id="mas1" placeholder="введите массив" autofocus>
+          <button onclick="veryfy1()">подтвердить</button>
+          <p>массив 2</p>
+          <input type="text" id="mas2" placeholder="введите массив" autofocus>
+          <button onclick="veryfy2()">подтвердить</button>
+          <p>массив 3</p>
+          <input type="text" id="mas3" placeholder="введите массив" autofocus>
+          <button onclick="veryfy3()">подтвердить</button>
+          <p>результат</p>
+          <button onclick="task5()">сортировать</button>
+          <p>Изначальный массив <span id="result5_1"></span></p>
+          <p>Отсортированный массив <span class="blue" id="result5_2"></span></p>
+          <p>Инвертированный массив <span class="green" id="result5_3"></span></p>
+          <button onclick="mas1.value = ''; mas2.value = '';mas3.value = '';result5_1.innerHTML = '';result5_2.innerHTML = '';result5_3.innerHTML = '';">Очистить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function task1() {
+      var result1_ = num1.value / num2.value;
+      let s = 1;
+      console.log(result1_)
+      document.getElementById("result1_3").innerHTML = " " + String(result1_);
+      while (result1_ > 50) {
+        result1_ /= num2.value;
+        s += 1
+        document.getElementById("result1_3").innerHTML += " " + String(result1_);
+
+      }
+      document.getElementById("result1_1").innerHTML = result1_;
+      document.getElementById("result1_2").innerHTML = s;
+    }
+
+    function task2() {
+      if (parseInt(v1.value) < 10 || parseInt(v1.value) > 90 || parseInt(t1.value) < 10 || parseInt(t1.value) > 90 || parseInt(v2.value) < 10 || parseInt(v2.value) > 35) {
+        document.getElementById("result2_1").innerHTML = "ошибка";
+      }
+      else {
+        var s = (parseInt(v1.value) + parseInt(v2.value)) * (t1.value / 60);
+        document.getElementById("result2_1").innerHTML = s;
+      }
+    }
+
+    function task3() {
+      const numCount = parseInt(num3.value)
+      if (parseInt(num3.value) < 1) {
+        document.getElementById("result3_1").innerHTML = "ошибка";
+      }
+      let numbers = Array.from({ length: numCount }, () => Math.floor(Math.random() * 120) + 1);
+
+      // Анализируем сгенерированные числа
+      const sortedNumbers = [...numbers].sort((a, b) => a - b);
+      const max1 = sortedNumbers[sortedNumbers.length - 1];
+      const max2 = sortedNumbers[sortedNumbers.length - 2];
+      const min1 = sortedNumbers[0];
+      const min2 = sortedNumbers[1];
+      const sum = numbers.reduce((acc, val) => acc + val, 0);
+      const avg = (sum / numbers.length).toFixed(2);
+
+      document.getElementById("result3_1").innerHTML = `
+        <p>Сгенерированные числа: ${numbers.join(", ")}</p>
+        <p>2 наибольших числа: ${max1}, ${max2}</p>
+        <p>2 наименьших числа: ${min1}, ${min2}</p>
+        <p>Среднее значение: ${avg}</p>
+      `;
+    }
+
+    function task4() {
+      var num = (num4.value);
+      num = num.split(" ");
+      var flag = false
+      for (let i = 0; i < num.length; i++) {
+        if (num[i] > 99 || num[i] < 0) {
+          flag = true;
+        }
+        if (num[i] == "") {
+          flag = true;
+        }
+      }
+      if (num.length != 8) {
+        document.getElementById("result4_1").innerHTML = "ошибка"; document.getElementById("result4_2").innerHTML = "";
+      }
+      else if (flag) {
+        document.getElementById("result4_1").innerHTML = "ошибка"; document.getElementById("result4_2").innerHTML = "";
+      }
+      else {
+        console.log(num)
+        var pol = num.filter(num => num >= 0).length;
+        var otri = num.filter(num => num < 0).length;
+        var chetn = num.filter(num => num % 2 === 0).length;
+        var nechetn = num.filter(num => num % 2 !== 0).length;
+        document.getElementById("result4_1").innerHTML = `
+        <p>положительных чисел: ${pol}</p>
+        <p>отрицательных чисел: ${otri}</p>
+        <p>четные числа: ${chetn}</p>
+        <p>нечетные числа: ${nechetn}</p>
+      `;
+        document.getElementById("result4_2").innerHTML = "";
+        for (let i = 0; i < num.length; i++) {
+          if (num[i] > 3 && num[i] < 8) {
+            document.getElementById("result4_2").innerHTML += `
+        <p>${num[i]}</p>
+      `;
+          }
+        }
+      }
+    }
+
+    function veryfy1() {
+      var mas1_ = (mas1.value);
+      veryfy1.mas1_ = mas1_.split(", ")
+    }
+    function veryfy2() {
+      var mas2_ = (mas2.value);
+      veryfy2.mas2_ = mas2_.split(", ")
+    }
+    function veryfy3() {
+      var mas3_ = (mas3.value);
+      veryfy3.mas3_ = mas3_.split(", ")
+      console.log(mas3_)
+    }
+    function task5() {
+      var mas = []
+      mas = mas.concat(veryfy1.mas1_, veryfy2.mas2_, veryfy3.mas3_)
+      console.log(mas)
+      document.getElementById("result5_1").innerHTML = mas.join(" ");
+      document.getElementById("result5_2").innerHTML = mas.sort().join(" ");
+      document.getElementById("result5_3").innerHTML = [...mas].reverse().join(" ");
+    }
+  </script>
+</body>
+</html>

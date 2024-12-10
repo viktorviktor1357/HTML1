@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Практическая работа №4 (JS)</title>
+</head>
+
+
+<body>
+
+    <body>
+        <div class="wrapper">
+            <h1>Практическая работа №4</h1>
+            <h2>Разработчики: Цымбалов жилина спи213/23</h2>
+            <div class="bidox">
+                <h2>Управляемый слайдер</h2>
+                <div class="mainphito">
+                    <button onclick="left()" id="mainbt_left"><span id="mainbt_ctx">
+                            <</span></button>
+                    <img id="imageActive"
+                        src="https://images.wallpaperscraft.ru/image/single/devushka_siluet_mlechnyj_put_1181590_1920x1080.jpg"
+                        alt="Изображение 1">
+                    <button onclick="right()" id="mainbt_right"><span id="mainbt_ctx">></span></button>
+                </div>
+                <div class="smallbox">
+                    <img id="slide-1" class="slide-min-img"
+                        src="https://images.wallpaperscraft.ru/image/single/devushka_siluet_mlechnyj_put_1181590_1920x1080.jpg"
+                        alt="Изображение 1">
+                    <img id="slide-2" class="slide-min-img"
+                        src="https://images.wallpaperscraft.ru/image/single/zvezdnoe_nebo_oblaka_zakat_120716_1920x1080.jpg">
+                    <img id="slide-3" class="slide-min-img"
+                        src="https://images.wallpaperscraft.ru/image/single/gory_noch_dolina_1075359_1920x1080.jpg"
+                        alt="Изображение 3">
+                    <img id="slide-4" class="slide-min-img"
+                        src="https://images.wallpaperscraft.ru/image/single/gory_holmy_derevia_1082220_1920x1080.jpg"
+                        alt="Изображение 4">
+                    <img id="slide-5" class="slide-min-img"
+                        src="https://images.wallpaperscraft.ru/image/single/zakat_derevo_ozero_130063_1920x1080.jpg"
+                        alt="Изображение 5">
+                    <img id="slide-6" class="slide-min-img"
+                        src="https://images.wallpaperscraft.ru/image/single/trava_siluety_solntse_1297847_1920x1080.jpg"
+                        alt="Изображение 6">
+                    <img id="slide-7" class="slide-min-img"
+                        src="https://images.wallpaperscraft.ru/image/single/more_bereg_gorizont_1316736_1920x1080.jpg"
+                        alt="Изображение 7">
+                    <img id="slide-8" class="slide-min-img"
+                        src="https://cdn.ingos.ru/images/blog/gde-uvidet-severnoe-siyanie-v-rossii.jpg"
+                        alt="Изображение 8">
+
+                </div>
+            </div>
+            <div class="big">
+                <div class="smal">
+                    <p>Скорость прокрутки: <span id="rangeSpeed1">200мс</span><br></p>
+                    <input type="range" id="rangeSpeed" min="50" max="1000" value="200">
+                </div>
+                <div class="smal">
+                    <button onclick="task1()"><span id="start">Старт</span></button><br>
+                    <div id="myProgress">
+                        <div id="myBar"><span id="bar">12.5%</span></div>
+                    </div>
+                </div>
+                <div class="smal">
+                    <p>Описание к слайду</p>
+                    <textarea id="outputText" style="width: 300px;">Девочка сидит на холме и смотря на млечный путь</textarea>
+                    <button onclick="hide_show()"><span id="hide_">Скрыть</span></button>
+                </div>
+
+            </div>
+        </div>
+    </body>
+    <script src="cod.js"></script>
+
+</html>

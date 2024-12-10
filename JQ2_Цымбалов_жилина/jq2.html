@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://code.jquery.com/jquery-3.7.1.js" src="JQ2/jquery-3.7.1.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Jq2</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="block1">
+        <div class="logo"><h1 id="logotxt">Логотип</h1></div>
+        <div class="mainblock">
+          <div class="slider">
+            <button class="mainbt" id="mainleftbutton" onclick="left()"><<</button>
+            <div id="mainphotos">
+              <div id="leftphoto">
+                <img class="centerphoto"
+                  alt="Изображение 1" id="left_"
+                />
+                <span class="photosdesc" id="par31">Виртуальная машина</span>
+                <h3 id='text_new1'; ></h3>
+              </div>
+              <div>
+                <img  class="centerphoto"
+                  alt="Изображение 2" id="center"
+                />
+                <span class="photosdesc" id="par32">крутая машина</span>
+                <h3 id='text_new2'; ></h3>
+              </div>
+              <div id="rightphoto">
+                <img  alt="Изображение 3" id="right_"/>
+                <span id="par33" style="display: flex; justify-content: center;">Машина на SQL</span>
+                <h3 id='text_new3'; ></h3>
+              </div>
+              <button class="mainbt" id="mainrightbutton" onclick="right()">>></button>
+            </div>
+          </div>
+          <span id="maintxt">какой-то большой текст</span>
+        </div>
+      </div>
+      <div class="smallpics">
+        <div id="smallpic1">
+          <h3 class="par161">Внедорожник</h3>
+          <img src="https://avatars.mds.yandex.net/i?id=483259c2dd2bb0c588067ab8db8a01a5_l-5345266-images-thumbs&n=13" alt="Изображение 1" class="par151" id="par151"/>
+          <h4 class="par141">Вранглер</h4>
+          <h6 class="par141_" style="display: none;">Вранглер - машина созданная для военных, а значит очень надёжна и проста. эта особенность перешла и в нынешние модели</h6>
+          <h6 class="par141_" style="display: none;">Учитывая нынешние тенденции по уменьшению выбросов вранглер остаётся на очень хорошей позиции по продажам</h6>
+             </div>
+        <div id="smallpic2">
+          <h3 class="par162">Грузовые</h3>
+          <img
+            src="https://avatars.mds.yandex.net/i?id=7b7c30d7788a908fcc04518c9deae001_l-5427734-images-thumbs&n=13"
+            alt="Изображение 2" class="par152" id="par152"
+          />
+          <h4 class="par142">Портер</h4>
+        <h6 class="par142_" style="display: none;">Портер - лёгкий коммерческий грузовой автомобиль, грузоподъёмностью до 950 кг. Porter</h6>
+        <h6 class="par142_" style="display: none;">типичный компактный азиатский городской грузовичок, предназначенный, в первую очередь, для забитых машинами улочек и плотного транспортного потока.</h6>
+        </div>
+        <div id="smallpic3">
+          <h3 class="par163">Легковые</h3>
+          <img class="par4"
+            src="https://avatars.mds.yandex.net/get-altay/6363798/2a00000180b346613492e1251c765ec146cf/XXL_height"
+            alt="Изображение 3" 
+          />
+          <h4 class="par143">Камри</h4>
+          <h6 class="par143_" style="display: none;">Toyota Camry — автомобиль компании Toyota. Производится на заводах в Японии, США, Австралии и Китае, Таиланде. По состоянию на 2024 год выходит девятое поколение автомобиля.</h6>
+          <h6 class="par143_" style="display: none;">Камри это машина про понты и какой-то статус. для всех эта машина верх надежности из-за этого её цена высока</h6>
+        </div>
+      </div>
+      <div class="companyblock">
+        <div id="compadydisc">
+          <h3 id="companytxt" class="par13">Подробнее</h3>
+          <span id="hidetext" style="display: none;">Нажми ещё раз</span>
+          <h4 class="par13_">Автомобили</h4>
+          <p class="par121">
+            Легковые автомобили: Обычно используются для личного передвижения. Они компактны, экономичны и подходят для городских условий.
+          </p>
+          <p class="par122">
+            Внедорожники: Эти автомобили имеют увеличенный клиренс и мощные двигатели, что позволяет им преодолевать сложные дорожные условия.
+          </p>
+          <p class="par123">Грузовые автомобили: Спроектированы для перевозки грузов.</p>
+          <button id="companybt" class="par11">Подробнее</button>
+        </div>
+        <div id="companyowner">
+          <div id="companymap">
+            <img src="https://www.svgrepo.com/show/116365/map.svg" class="par55" alt="Карта" id="p63" style="filter: opacity(100%);  transition: 0.5s"/>
+            <h3 style="font-size: 1.4em; text-align: center" class="par63" id="ss35">Компания из списка Fortune 500</h3>
+          </div>
+          <div id="companySphere">
+            <img src="https://banner2.cleanpng.com/20180508/viw/kisspng-globe-earth-symbol-computer-icons-5af1d858b60aa8.0306600115257990007457.jpg" style="filter: opacity(30%); transition: 0.5s;" alt="Глобус" class="par5" id="p62"/>
+            <h2 style="transform: translateY(-60px); text-align: center;" id="par51">1</h2>
+            <h3 style="font-size: 1.4em; text-align: center" class="par62" id="34">Новые подписки</h3>
+          </div>
+
+          <div id="companyVolyme">
+            <div id="volume">
+              <div id="polosa"></div>
+            </div>
+            <p id="volume-value">50</p>
+          </div>
+          <div id="gear">
+            <img src="https://i.pinimg.com/originals/eb/d4/68/ebd468e4bf0f7e63281e411013c81801.png" id="p61" style="filter: opacity(40%);  transition: 0.5s" class="par7"/>
+            <h3 style="font-size: 1.4em; text-align: center" class="par61" id="ss33">Стандартов</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="timerblcok">
+        <div id="timerleft">
+          <div id="timer">
+            <h1 id="time" class="par19">Таймер 00:00</h1>
+          </div>
+          <div id="downphotos">
+            <img src="https://live.staticflickr.com/2943/15160231257_11d0f687f2_b.jpg" alt="Изображение 1" class="par101"/>
+            <img
+              src="https://avatars.mds.yandex.net/get-mpic/1901070/img_id7088714728906647348.jpeg/orig"
+              alt="Изображение 2" class="par102"
+            />
+          </div>
+        </div>
+        <div id="timercenter">
+          <div class="dropdown">
+            <input type="text" id="search-box" placeholder="Введите марку машины..." />
+            <select id="car-brands">
+              <option value="Kia">Kia</option>
+              <option value="BMW">BMW</option>
+              <option value="Toyota">Toyota</option>
+              <option value="Mercedes">Mercedes</option>
+              <option value="Hyundai">Hyundai</option>
+            </select>
+            <p class="par81" style="filter: opacity(100%);">
+              Современные технологии меняют наш мир, делая его удобнее и доступнее. Устройства умного дома и
+              искусственный интеллект становятся частью повседневной жизни, упрощая управление многими процессами.
+            </p>
+            <p class="par82">
+              днако с развитием технологий растут и риски. Безопасность данных становится ключевой проблемой, требующей
+              внимания и ответственного подхода.
+            </p>
+            <p class="par83" style="filter: opacity(100%);">
+              Несмотря на вызовы, технологии открывают огромные возможности для решения глобальных задач, улучшая
+              качество жизни и создавая устойчивое будущее.
+            </p>
+            <div id="lev" class="par9">
+              <img 
+                id="swapbt" 
+                src="https://avatars.mds.yandex.net/i?id=794669b01123dbf41c6d22cde6ba7d4cf4902e9b-6202880-images-thumbs&n=13"
+                alt="Изображение льва"
+              />
+            </div>
+          </div>
+        </div>
+        <div id="timerleft">
+          <div id="downphotos1">
+            <img src="https://live.staticflickr.com/2943/15160231257_11d0f687f2_b.jpg" alt="Изображение 1" class="par103"/>
+            <img
+              src="https://avatars.mds.yandex.net/get-mpic/1901070/img_id7088714728906647348.jpeg/orig"
+              alt="Изображение 2" class="par104"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </body>
+
+  <script src="code.js"></script>
+
+</html>

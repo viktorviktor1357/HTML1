@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>Заготовка</title>
+  <style>
+    .wrapper {
+      width: 1100px;
+      height: 2800px;
+      border: 2px solid grey;
+      margin: 5px auto;
+      padding: 5px;
+    }
+
+    .box {
+      width: 900px;
+      height: 400px;
+      margin: 5px auto;
+      background-color: bisque;
+    }
+
+    .h1,
+    .h2 {
+      text-transform: uppercase;
+      color: #a5251a;
+      text-align: center;
+      font-weight: bold;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .smal {
+      width: 400px;
+      background-color: rgb(245, 217, 151);
+      padding-bottom: 10px;
+      padding-left: 10px;
+      margin: 20px auto;
+    }
+
+    .big {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+
+    }
+
+    .red {
+      color: #a5251a;
+    }
+
+    .blue {
+      color: #3a38c9;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="box">
+      <h1>Пр3 Цымбалов Жилина</h1><br>
+      <h1> task 1</h1>
+      <h2>находит в тексте самое длинное слово и выводит его в отдельное текстовое поле</h2>
+      <input type="text" id="STR1" placehold="введите предложения" autofocus><br><br>
+      <button onclick="task1();">найти</button>
+      <button onclick="STR1.value = '';bi.innerHTML = '';">очистить</button>
+      <p><span id="bi"></span></p>
+    </div>
+
+    <div class="box">
+      <h1> task 2 </h1>
+      <h2>находит количество гласных букв и выводит число в отдельное текстовое поле</h2>
+      <input type="text" id="STR2" placehold="введите текст" autofocus><br><br>
+      <button onclick="task2()">найти</button>
+      <button onclick="STR2.value = '';glas.innerHTML = '';">очистить</button>
+      <p><span id="glas"></span></p>
+    </div>
+
+    <div class="box">
+      <h1> task 3 </h1>
+      <h2>Вывод минимального и максимального числа</h2>
+      <input type="text" id="STR3" placehold="введите текст" autofocus><br><br>
+      <button onclick="task3()">найти</button>
+      <button onclick="STR3.value = ''; bigger3.innerHTML = ''; miner3.innerHTML = '';">очистить</button>
+      <p>максимальное значение: <span class="red" id="bigger3"></span></p>
+      <p>минимальное значение: <span class="blue" id="miner3"></span></p>
+    </div>
+
+
+    <script>
+      function task1() {
+        var st = STR1.value;
+        st = st.split(" ");
+        let big = "";
+        for (var i = 0; i < (st.length); i++) {
+          if (big.length < st[i].length) {
+            big = st[i];
+          }
+          console.log(big);
+        }
+        document.getElementById("bi").innerHTML = big;
+      }
+
+      function task2() {
+        var bukv = "ауоыиэяюёеАУОЫИЭЯЮЁЕ";
+        var str2 = STR2.value;
+        var glasn = -1;
+        for (var i = 0; i <= str2.length; i++) {
+          for (var j = 0; j <= bukv.length; j++) {
+            if (str2[i] == bukv[j]) {
+              glasn += 1;
+              console.log(str2[i]);
+            }
+          }
+        }
+        document.getElementById("glas").innerHTML = glasn;
+      }
+
+      function task3() {
+        var num = STR3.value;
+        num = num.split(" ");
+        if (num.length < 3) {
+          document.getElementById("STR3").innerHTML = 'введите больше 3 чисел';
+        }
+        else {
+          let big2 = 0;
+          for (var i = 0; i < (num.length); i++) {
+            if (parseInt(num[i]) > big2) {
+              big2 = num[i];
+            }
+          }
+          document.getElementById("bigger3").innerHTML = big2;
+          let min2 = num[0];
+          for (var i = 0; i < (num.length); i++) {
+            if (parseInt(num[i]) < min2) {
+              min2 = num[i];
+            }
+          }
+          document.getElementById("miner3").innerHTML = min2;
+        }
+      }
+    </script>
+  </div>
+
+
+</body>
+
+</html>
