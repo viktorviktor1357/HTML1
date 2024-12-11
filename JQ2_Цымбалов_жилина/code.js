@@ -90,7 +90,7 @@ $(document).ready(function () {
   // 4 задача: изменение прозрачности
   let flag4 = true;
   $(".par4").click(function () {
-    $(this).css("filter", flag4 ? "opacity(10%)" : "opacity(0%)");
+    $(this).css("filter", flag4 ? "opacity(10%)" : "opacity(100%)");
     flag4 = !flag4;
   });
 
@@ -164,6 +164,8 @@ $(document).ready(function () {
   });
 
   $(".par83").click(function () {
+    console.log("kjlghiuj");
+    
     if (f1 == 0 || f3 == 0) {
       f3 = 1;
       if (f1 == 1 && f3 == 1) {
@@ -207,13 +209,17 @@ $(document).ready(function () {
 
       if (flag11) {
         compadydisc.style.height = "138%";
+        console.log(flag11);
       } else {
         compadydisc.style.height = "94%";
         console.log(flag11);
       }
     });
   });
-
+  document.querySelectorAll("#compadydisc").forEach((compadydisc) => {
+    compadydisc.style.overflowY = "hidden";
+    compadydisc.style.overflowY = "auto";
+  });
   let count121 = 0; // 12 задача (Добавление текста)
   $(".par121").click(function () {
     if (count121 < 2) {
@@ -239,10 +245,11 @@ $(document).ready(function () {
       count123++;
     }
   });
-  document.querySelectorAll("#compadydisc").forEach((compadydisc) => {
-    compadydisc.style.overflowY = "hidden";
-    compadydisc.style.overflowY = "auto";
+
+  document.querySelectorAll(".smallpics").forEach((smallpics) => {
+    smallpics.style.maxHeight = "500px";
   });
+
   let flag13 = true; // 13 задача (Скрытие и показ)
   $(".par13").click(function () {
     if (flag13) {
@@ -257,7 +264,12 @@ $(document).ready(function () {
       flag13 = true;
     }
   });
-
+  document.querySelectorAll(".scroll").forEach((scroll) => {
+    scroll.style.overflowY = "hidden";
+    scroll.style.overflowY = "auto";
+    scroll.style.Max = "auto";
+    
+  });
   $(".par141").click(function () {
     // 14 задача (Показать дополнительный текст)
     $(".par141_").show();
@@ -309,18 +321,22 @@ $(document).ready(function () {
     } else {
         $(this).css("font-size", "1.2em");
         $(this).css("margin-bottom", "18.720px");
+        $(this).css("color", "black");
+        $(this).css("fontWeight", "100");
     }
     flag161 = !flag161;
   });
-
-
   $(".par162").click(function () {
     if (flag162) {  
         $(this).css("font-size", "2em");
         $(this).css("margin-bottom", "4px");
+        $(this).css("color", "red");
+        $(this).css("fontWeight", "bold");
     } else {
         $(this).css("font-size", "1.2em");
         $(this).css("margin-bottom", "18.720px");
+        $(this).css("color", "black");
+        $(this).css("fontWeight", "100");
     }
     flag162 = !flag162;
   });
@@ -328,9 +344,13 @@ $(document).ready(function () {
     if (flag163) {  
         $(this).css("font-size", "2em");
         $(this).css("margin-bottom", "4px");
+        $(this).css("color", "red");
+        $(this).css("fontWeight", "bold");
     } else {
         $(this).css("font-size", "1.2em");
         $(this).css("margin-bottom", "18.720px");
+        $(this).css("color", "black");
+        $(this).css("fontWeight", "100");
     }
     flag163 = !flag163;
   });
