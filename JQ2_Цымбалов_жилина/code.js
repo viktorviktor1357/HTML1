@@ -71,8 +71,7 @@ $(document).ready(function () {
     $(this).css("padding", "0 75px 0 75px");
   });
 
-  const Text_new1 = `травка зеленеет
-солнышко блестит`;
+  const Text_new1 = `травка зеленеет, машина ржавеет`;
   let Text_new2 = "Машина едет, радует владельца";
   let Text_new3 = "Своя машина это всегда в радость";
 
@@ -175,7 +174,7 @@ $(document).ready(function () {
     }
   });
 
-  let mas = ["gold", "rgb(219, 219, 176)", "darkcyan"];
+  let mas = ['palegreen', "magenta", 'dodgerblue'];
   let count9 = 0; // 9 task
   $("#swapbt").click(function () {
     $(".wrapper").css("background-color", mas[count9]);
@@ -286,21 +285,21 @@ $(document).ready(function () {
     if (flag15) {
       $("#par151").attr(
         "src",
-        "https://avatars.mds.yandex.net/i?id=7b7c30d7788a908fcc04518c9deae001_l-5427734-images-thumbs&n=13"
+        "https://pelican-van.com/upload/resize_cache/iblock/52e/1200_1200_120ba3009e24bcedd2db57553241970bd/52e490449f15d99be2736b3c950b759b.JPG"
       );
       $("#par152").attr(
         "src",
-        "https://avatars.mds.yandex.net/i?id=483259c2dd2bb0c588067ab8db8a01a5_l-5345266-images-thumbs&n=13"
+        "https://auto.vercity.ru/img/magazine/2017/08/24/1503588373.jpg"
       );
       flag15 = false;
     } else {
       $("#par152").attr(
         "src",
-        "https://avatars.mds.yandex.net/i?id=7b7c30d7788a908fcc04518c9deae001_l-5427734-images-thumbs&n=13"
+        "https://pelican-van.com/upload/resize_cache/iblock/52e/1200_1200_120ba3009e24bcedd2db57553241970bd/52e490449f15d99be2736b3c950b759b.JPG"
       );
       $("#par151").attr(
         "src",
-        "https://avatars.mds.yandex.net/i?id=483259c2dd2bb0c588067ab8db8a01a5_l-5345266-images-thumbs&n=13"
+        "https://auto.vercity.ru/img/magazine/2017/08/24/1503588373.jpg"
       );
       flag15 = true;
     }
@@ -356,9 +355,9 @@ $(document).ready(function () {
   });
 
   let massiv_image = [
-    "https://i.pinimg.com/originals/03/11/2a/03112a270a4cd776cb2e66e2a61d9d33.jpg",
-    "https://i.pinimg.com/736x/79/76/28/79762826ac246a71dea829a121808de4.jpg",
-    "https://avatars.mds.yandex.net/get-mpic/5266697/img_id7655033859845393116.jpeg/orig",
+    "https://i.pinimg.com/originals/3d/7f/b0/3d7fb0005624e7f968ca7dbd54921850.jpg",
+    "https://i.pinimg.com/736x/70/2b/a5/702ba5a0e21f5537ccdb1f3d9d912e53.jpg",
+    "https://i.pinimg.com/736x/1d/b9/8a/1db98a1e89f1cb2be1ab728028acb1d3.jpg"
   ];
   let countImageL = Math.floor(Math.random() * 3);
   console.log(countImageL);

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,23 +8,67 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.7.1.js" src="jquery-3.7.1 (1).js"></script>
 </head>
+
 <body>
     <div class="wrapper">
         <h1>ПРАКТИЧЕСКАЯ РАБОТА №3(JQ)</h1>
         <h2>Цымбалов Жилина</h2>
-        <button id="scrol">поменять фон</button><br><br>
-        <input type="text" id="task21" placeholder="имя" autofocus><br>
-        <input type="text" id="task22" placeholder="почта" autofocus><br>
-        <input type="text" id="task23" placeholder="телефон" autofocus><br>
-        <input type="text" id="task24" placeholder="пароль" autofocus><br>
-        <input type="text" id="task25" placeholder="аватар" autofocus><br>
-        <button id="proverka">проверка</button><br><br>
-        <button id="up">вверх </button>
-        <button id="down">вниз</button>
-        <button id="left">влево</button>
-        <button id="right">вправо</button><br>
-        <div class="box" id="box"></div>
-    </div>
+        <div class="boxxx">
+            <div class="big">
+                <div class="smal">
+                    <button id="scrol">поменять фон</button>
+                </div>
+            </div>
+            <div class="big">
+                <div class="smal">
+                    <h1>Авторизация</h1>
+                    <form>
+                        <input type="text" id="task21" placeholder="имя" autofocus required><br>
+                        <input type="text" id="task22" placeholder="почта" autofocus required><br>
+                        <input type="text" id="task23" placeholder="телефон" autofocus required><br>
+                        <input type="text" id="task24" placeholder="пароль" autofocus required><br>
+                        <input type="text" id="task25" placeholder="аватар" autofocus required><br><br>
+                        <span id="p2"></span><br>
+                        <input type="submit" id="verify">проверка
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="boxxx">
+            <div class="big">
+                <div class="smal">
+                    <h1>Двигающийся кубик</h1>
+                    <button id="up">вверх </button>
+                    <button id="down">вниз</button>
+                    <button id="left">влево</button>
+                    <button id="right">вправо</button><br>
+                    <div class="box" id="box"></div>
+
+                </div>
+            </div>
+            <div class="big">
+                <div class="smal">
+                    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div><br>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmGSun_QfKNVMMBZoSkcmL15eMmSSqFRCEtg&s"
+                        id="drag1" draggable="true" ondragstart="drag(event)">
+                </div>
+            </div>
+        </div>
+        <div class="boxxx">
+            <div class="big">
+                <div class="smal">
+                    <p>Этот текст содержит <strong>жирный</strong> и <em>курсивный</em> текст.</p>
+                    <p>А этот текст содержит <strong>еще один жирный</strong> и <em>курсивный</em> текст.</p>
+
+                </div>
+            </div>
+            <div class="big">
+                <div class="smal">
+                    <div id="boxx">Наведите мышку на меня!</div>
+                    <div class="some">Этот элемент будет поворачиваться</div>
+                </div>
+            </div>
 </body>
 <script src="code.js"></script>
+
 </html>
