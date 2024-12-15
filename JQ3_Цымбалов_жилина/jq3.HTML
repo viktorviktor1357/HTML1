@@ -11,8 +11,10 @@
 
 <body>
     <div class="wrapper">
-        <h1>ПРАКТИЧЕСКАЯ РАБОТА №3(JQ)</h1>
-        <h2>Цымбалов Жилина</h2>
+        <div class="p">
+            <img id="logo" src="image\logo.jpg" alt="лого">
+            <h1>ПРАКТИЧЕСКАЯ РАБОТА №3(JQ) <br> Цымбалов Жилина</h1>
+        </div>
         <div class="boxxx">
             <div class="big">
                 <div class="smal">
@@ -47,7 +49,7 @@
                 </div>
             </div>
             <div class="big">
-                <div class="smal">
+                <div class="smal" style="display: flex;">
                     <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div><br>
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmGSun_QfKNVMMBZoSkcmL15eMmSSqFRCEtg&s"
                         id="drag1" draggable="true" ondragstart="drag(event)">
@@ -59,15 +61,117 @@
                 <div class="smal">
                     <p>Этот текст содержит <strong>жирный</strong> и <em>курсивный</em> текст.</p>
                     <p>А этот текст содержит <strong>еще один жирный</strong> и <em>курсивный</em> текст.</p>
-
                 </div>
             </div>
+            <div class="big">
+                <div class="smal">
+                    <button id="animateParabola">Анимация по параболе</button>
+                    <div id="parabolaElement">0</div>
+                </div>
+            </div>
+        </div>
+        <div class="boxxx">
             <div class="big">
                 <div class="smal">
                     <div id="boxx">Наведите мышку на меня!</div>
                     <div class="some">Этот элемент будет поворачиваться</div>
                 </div>
             </div>
+            <div class="big">
+                <div class="smal">
+                    <div class="center">
+                        <div class="carousel">
+                            <img src="image/1.jpg" alt="Картинка 1">
+                            <img src="image/2.jpg" alt="Картинка 2">
+                            <img src="image/3.jpg" alt="Картинка 3">
+                            <img src="image/4.jpg" alt="Картинка 4">
+                            <img src="image/5.jpg" alt="Картинка 5">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="boxxx">
+            <div class="big">
+                <div class="smal">
+                    <div class="center">
+                        <div class="gallery">
+                            <img src="image/1.jpg" alt="Картинка 1">
+                            <img src="image/2.jpg" alt="Картинка 2">
+                            <img src="image/3.jpg" alt="Картинка 3">
+                            <img src="image/4.jpg" alt="Картинка 4">
+                            <img src="image/5.jpg" alt="Картинка 5">
+                        </div>
+                        <div id="galleryModal">
+                            <img src="" alt="Full Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="big">
+                <div class="smal">
+                    <div class="center">
+                        <h2>Эффект аккордеона для изображений</h2>
+                    </div>
+                    <div class="accordion">
+                        <div class="accordion-item">
+                            <div class="title">Картинка 1</div>
+                            <div class="content">
+                                <img src="image/1.jpg" alt="Картинка 1">
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="title">Картинка 2</div>
+                            <div class="content">
+                                <img src="image/2.jpg" alt="Картинка 2">
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="title">Картинка 3</div>
+                            <div class="content">
+                                <img src="image/3.jpg" alt="Картинка 3">
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="title">Картинка 4</div>
+                            <div class="content">
+                                <img src="image/4.jpg" alt="Картинка 4">
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="title">Картинка 5</div>
+                            <div class="content">
+                                <img src="image/5.jpg" alt="Картинка 5">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="boxxx">
+            <div class="big">
+                <div class="smal">
+                    <div class="center">
+                        <h2>Зависимые списки: Область и Город</h2>
+                    </div>
+                    <div class="center2">
+                        <select id="region">
+                            <option value="" disabled selected>Выберите область</option>
+                            <option value="vladimir">Владимирская область</option>
+                            <option value="moscow">Московская область</option>
+                            <option value="ryazan">Рязанская область</option>
+                            <option value="kaluga">Калужская область</option>
+                            <option value="tula">Тульская область</option>
+                        </select>
+
+                        <select id="city">
+                            <option value="" disabled selected>Выберите город</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 <script src="code.js"></script>
 

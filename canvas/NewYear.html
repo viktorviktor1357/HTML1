@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+color: limegreen;
+        }
+
+    
+    </style>
+</head>
+
+<body>
+    <canvas id="can" width="300px" height="300px"></canvas><br>
+    <canvas id="can2" width="800px" height="300px"></canvas>
+</body>
+
+</html>
+<script>
+    var canvas = document.getElementById("can");
+    var ctx = canvas.getContext("2d");
+
+    ctx.beginPath();
+    ctx.fillStyle = "green";
+    ctx.moveTo(75, 75);
+    ctx.lineTo(40, 110);
+    ctx.arc(75, 110, 35, 0, Math.PI, false);
+    ctx.lineTo(110, 110);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.fillStyle = "limegreen";
+    ctx.moveTo(75, 75);
+    ctx.lineTo(60, 100);
+    ctx.arc(75, 100, 25, 0, Math.PI, false);
+    ctx.lineTo(100, 100);
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.fillStyle = "green";
+    ctx.moveTo(75, 50);
+    ctx.lineTo(45, 80);
+    ctx.arc(75, 80, 30, 0, Math.PI, false);
+    ctx.lineTo(105, 80);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.fillStyle = "limegreen";
+    ctx.moveTo(75, 50);
+    ctx.lineTo(55, 70);
+    ctx.arc(75, 70, 20, 0, Math.PI, false);
+    ctx.lineTo(95, 70);
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.fillStyle = "green";
+    ctx.moveTo(75, 25);
+    ctx.lineTo(50, 50);
+    ctx.arc(75, 50, 25, 0, Math.PI, false);
+    ctx.lineTo(100, 50);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.fillStyle = "limegreen";
+    ctx.moveTo(75, 25);
+    ctx.lineTo(60, 40);
+    ctx.arc(75, 40, 15, 0, Math.PI, false);
+    ctx.lineTo(90, 40);
+    ctx.fill();
+    
+    var canvas = document.getElementById("can2");
+    var ctx = canvas.getContext("2d");
+
+    function drawSnow() {
+        ctx.beginPath();
+        ctx.moveTo(0, 250);
+        ctx.quadraticCurveTo(250, 200, 500, 250);
+        ctx.lineTo(500, 300);
+        ctx.lineTo(0, 300);
+        ctx.closePath();
+        ctx.fillStyle = "#e0f7fa";
+        ctx.fill();
+        ctx.stroke();
+    }
+
+    // Рисуем слой ёлки с закруглениями
+    function drawTreeLayer(x, y, width, height, curveHeight) {
+        ctx.beginPath();
+        ctx.moveTo(x, y); // Верхняя точка
+        ctx.lineTo(x - width / 2, y + height - curveHeight); // Левая сторона
+        ctx.quadraticCurveTo(
+            x, y + height + curveHeight, // Контрольная точка для закругления
+            x + width / 2, y + height - curveHeight // Правая сторона
+        );
+        ctx.closePath();
+        ctx.fillStyle = "green";
+        ctx.fill();
+        ctx.stroke();
+    }
+
+    // Рисуем ёлку
+    function drawTree(x, y) {
+        const layers = [
+            { width: 80, height: 60, curveHeight: 10 },
+            { width: 100, height: 60, curveHeight: 15 },
+            { width: 120, height: 60, curveHeight: 20 }
+        ];
+        layers.forEach((layer, index) => {
+            drawTreeLayer(x, y + index * 40, layer.width, layer.height, layer.curveHeight);
+        });
+
+        // Ствол
+        ctx.fillStyle = "brown";
+        ctx.fillRect(x - 10, y + 120, 20, 30);
+
+        // Шары
+        const decorations = [
+            { x: x - 25, y: y + 30 },
+            { x: x + 25, y: y + 30 },
+            { x: x - 40, y: y + 70 },
+            { x: x + 40, y: y + 70 },
+            { x: x, y: y + 90 }
+        ];
+        decorations.forEach((decoration) => {
+            ctx.beginPath();
+            ctx.arc(decoration.x, decoration.y, 7, 0, Math.PI * 2);
+            ctx.fillStyle = "red";
+            ctx.fill();
+            ctx.stroke();
+        });
+    }
+
+    // Рисуем дом
+    function drawHouse(x, y) {
+        // Основа дома
+        ctx.fillStyle = "#8d6e63";
+        ctx.fillRect(x, y, 100, 80);
+
+        // Крыша
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.lineTo(x + 50, y - 50);
+        ctx.lineTo(x + 100, y);
+        ctx.closePath();
+        ctx.fillStyle = "#d32f2f";
+        ctx.fill();
+        ctx.stroke();
+
+        // Окна
+        ctx.fillStyle = "#fff59d";
+        ctx.fillRect(x + 25, y + 20, 20, 20);
+        ctx.fillRect(x + 55, y + 20, 20, 20);
+        ctx.fillRect(x + 25, y + 50, 20, 20);
+        ctx.fillRect(x + 55, y + 50, 20, 20);
+
+        // Труба
+        ctx.fillStyle = "gray";
+        ctx.fillRect(x + 70, y - 40, 15, 30);
+
+        // Дым из трубы
+        const smokeParticles = [
+            { x: x + 77, y: y - 50, radius: 8 },
+            { x: x + 85, y: y - 65, radius: 10 },
+            { x: x + 75, y: y - 80, radius: 12 }
+        ];
+        smokeParticles.forEach((particle) => {
+            ctx.beginPath();
+            ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+            ctx.fillStyle = "rgba(192, 192, 192, 0.5)";
+            ctx.fill();
+        });
+    }
+
+    // Рисуем снеговика
+    function drawSnowman(x, y) {
+        // Тело
+        const circles = [
+            { x: x, y: y, radius: 30 },
+            { x: x, y: y - 40, radius: 25 },
+            { x: x, y: y - 70, radius: 20 }
+        ];
+        circles.forEach((circle) => {
+            ctx.beginPath();
+            ctx.arc(circle.x, circle.y, circle.radius, 0, Math.PI * 2);
+            ctx.fillStyle = "white";
+            ctx.fill();
+            ctx.stroke();
+        });
+
+        // Глаза
+        ctx.beginPath();
+        ctx.arc(x - 5, y - 75, 3, 0, Math.PI * 2);
+        ctx.arc(x + 5, y - 75, 3, 0, Math.PI * 2);
+        ctx.fillStyle = "black";
+        ctx.fill();
+
+        // Нос (морковка)
+        ctx.beginPath();
+        ctx.moveTo(x, y - 70);
+        ctx.lineTo(x + 15, y - 68);
+        ctx.lineTo(x, y - 65);
+        ctx.closePath();
+        ctx.fillStyle = "orange";
+        ctx.fill();
+
+        // Ведро
+        ctx.fillStyle = "gray";
+        ctx.fillRect(x - 12, y - 100, 25, 15);
+        ctx.beginPath();
+        ctx.moveTo(x - 12, y - 100);
+        ctx.lineTo(x + 12, y - 100);
+        ctx.lineTo(x, y - 110);
+        ctx.closePath();
+        ctx.fill();
+    }
+
+    // Рисуем сцену
+    drawSnow();
+    drawTree(120, 100);
+    drawHouse(200, 150);
+    drawSnowman(400, 200);
+</script>

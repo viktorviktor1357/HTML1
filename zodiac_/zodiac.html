@@ -3,17 +3,18 @@
 
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css" />
-  <title>Jq2</title>
+  <title>zadiak</title>
 </head>
 
-<body>
+<body id="wrapper">
   <div class="wrapper">
     <div class="block1">
       <div class="logo">
         <h1>Практическая работа №3</h1>
-        Разработчики: Цымбалов и Жилина СИП 213
-        <h1 id="logotxt">Гороскоп</h1>
+        Разработчики: Цымбалов и жилина СИП 213
+        <h1 id="logotxt">Гороскоп</h1><br><br>
       </div>
       <div class="mainblock">
         <div class="slider">
@@ -21,75 +22,100 @@
             << </button>
               <div id="mainphotos">
 
-                <img class="centerphoto"
-                  src="https://avatars.mds.yandex.net/get-entity_search/2304479/993138934/S122x122Smart_2x"
+                <img class="centerphoto" src="https://content3.flowwow-images.com/data/blog/70/1672064860_43376970.png"
                   alt="Изображение 2" id="center" />
 
 
-                <button class="mainbt" id="mainrightbutton" onclick="right()">>></button>
+                <button class="mainbt" style="transform: translateY(-10%);" id="mainrightbutton" onclick="right()">>></button>
               </div>
         </div>
       </div>
+      <div class="box">
+        <svg width="250" height="20">
+        <circle cx="20" cy="10" r="8" fill="gray" id="circle0"/>
+        <circle cx="40" cy="10" r="8" fill="gray" id="circle1"/>
+        <circle cx="60" cy="10" r="8" fill="gray" id="circle2"/>
+        <circle cx="80" cy="10" r="8" fill="gray" id="circle3"/>
+        <circle cx="100" cy="10" r="8" fill="gray" id="circle4"/>
+        <circle cx="120" cy="10" r="8" fill="gray" id="circle5"/>
+        <circle cx="140" cy="10" r="8" fill="gray" id="circle6"/>
+        <circle cx="160" cy="10" r="8" fill="gray" id="circle7"/>
+        <circle cx="180" cy="10" r="8" fill="gray" id="circle8"/>
+        <circle cx="200" cy="10" r="8" fill="gray" id="circle9"/>
+        <circle cx="220" cy="10" r="8" fill="gray" id="circle10"/>
+        <circle cx="240" cy="10" r="8" fill="gray" id="circle11"/>
+      </svg>
+      </div>
     </div>
-    <div class="companyblock">
+    <div class="box" id="box1">
       <div class="big">
         <div class="smal">
           <h1>Хотите знать о себе</h1>
         </div>
         <div class="smal">
-          <button onclick="yes1()" id="but"></button><span> да</span>
-          <button onclick="no1()" id="but"></button><span> нет</span>
-        </div>
-        <div class="smal">
-          <h1>по году или по знаку зодиака?</h1>
-        </div>
-        <div class="smal">
-          <button onclick="year()" id="but"></button><span> По дате</span>
-          <button onclick="zodiak()" id="but"></button><span> По Зодиаку</span>
+          <input type="radio" id="contactChoice1" name="contact" value="email"  onclick="yes1()"/>
+          <label for="contactChoice1">Да</label>
+          <input type="radio" id="contactChoice2" name="contact" value="phone" onclick="no1()"/>
+          <label for="contactChoice2">Нет</label>
         </div>
       </div>
     </div>
-    <div class="box" id="b1">
-      <div class="big" id="big1">
-        <div class="smal">
-          <h1>Введите год рождения</h1>
-          <div style="border: 2px solid; padding: 5px 5px;"><input type="date" id="time"></div><br>
-          <button onclick="dategod()">Подтвердить</button>
-        </div>
-        <div class="smalImg"></div>
-        <img src="" id="imgy">
-        <h1 id="texty"></h1>
-      </div>
-      <div class="big" id="big2">
-        <div class="smal">
-          <h1>Введите год рождения</h1>
-          <div style="border: 2px solid; padding: 5px 5px;"><input type="date" id="time"></div><br>
-          <button onclick="dategod()">Подтвердить</button>
-        </div>
-      <div class="smalImg">
-        <h3 id="textz"> asdasda</h3>
-        <img src="https://avatars.dzeninfra.ru/get-zen_doc/9529784/pub_644bb6b0a7f69f254cc2419d_644bb6b401c9812cc7c4782f/scale_1200" alt="Изображение 2" id="imgy">
-      </div>
-      </div>
-    </div>
-    <div class="box" id="b2">
+    <div class="box" id="box2">
       <div class="big">
         <div class="smal">
-          <h1>Хотите ввести новую дату?</h1>
+          <h1>По животному или по знаку зодиака?</h1>
         </div>
         <div class="smal">
-          <button onclick="yes2()" id="but"></button><span> да</span>
-          <button onclick="no2()" id="but"></button><span> нет</span>
+          <input type="radio" id="contactChoice1" name="contact" value="email"  onclick="year()"/>
+          <label for="contactChoice1">По животному</label>
+          <input type="radio" id="contactChoice2" name="contact" value="phone" onclick="zodiak()"/>
+          <label for="contactChoice2">По зодиаку</label>
         </div>
+      </div>
+    </div>
+    <div class="box" id="box3">
+      <div class="big">
         <div class="smal">
-          <button onclick="clean()">очистить</button>
-          <button onclick="save()">печать</button>  
+          <h1>Введите дату рождения</h1>
+          <div style="border: 2px solid; padding: 5px 5px;"><input type="date" id="time"></div><br>
+          <button onclick="dategod()">Подтвердить</button>
+        </div>
+      </div>
+    </div>
+    <div class="box" id="box4">
+      <div class="big" style=" margin: 20px;">
+        <div class="smalImg">
+          <img src="http://www.zodiack.ru/images/boss/aries.png" id="imgyes">
+          <div class="small" id="save">
+            <h1 style="text-align: center;" id="znak">Ваш гороскоп</h1>
+            <h4 id="texty"></h4>
+       
+          <button onclick="save()" style="transform: translateX(-50%)">печать</button>
+        </div> </div>
+      </div>
+      <div class="box" style="width: 60%;" id="box5">
+        <div class="big">
+          <div class="smal">
+            <h3>Хотите ввести новую дату?</h3>
+          </div>
+          <div class="smal">
+            <input type="radio" id="contactChoice1" name="contact" value="email"  onclick="yes2()"/>
+            <label for="contactChoice1">Да</label>
+            <input type="radio" id="contactChoice2" name="contact" value="phone" onclick="closeWindow()"/>
+            <label for="contactChoice2">Нет</label>
+          </div>
+          <div class="smal">
+            <button onclick="clean()">очистить</button>
+            <button onclick="saveAsPDF()">печать</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </body>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script src="cod.js"></script>
+
 
 </html>
