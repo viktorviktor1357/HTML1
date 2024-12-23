@@ -115,7 +115,8 @@ function circle_no() {
 setInterval(right, 3000)
 
 box2.style.display = "none"
-box3.style.display = "none"
+box3_1.style.display = "none"
+box3_2.style.display = "none"
 box4.style.display = "none"
 box5.style.display = "none"
 
@@ -126,15 +127,26 @@ function yes1() {
 }
 let flagYear = true;
 function year() {
-    box3.style.display = "flex"
     box2.style.display = "none"
     flagYear = false;
+    if (flagYear) {
+        box3_2.style.display = "flex"
+    }
+    else {
+        box3_1.style.display = "flex"
+    }
 }
 
 function zodiak() {
-    box3.style.display = "flex"
+   
     box2.style.display = "none"
     flagYear = true;
+    if (flagYear) {
+        box3_2.style.display = "flex"
+    }
+    else {
+        box3_1.style.display = "flex"
+    }
 }
 flagYear = true;
 let imagesZod = ["http://www.zodiack.ru/images/boss/aries.png",
@@ -258,19 +270,32 @@ const m6 = [
 
 mass = [m1,m2,m3,m4,m5,m6]
 
-let day
-let month
-let yyear
+
 let countZod = 0
 let countYear = 0
-function dategod() {
-    let date = new Date(time.value);
-    day = date.getDate();
-    month = date.getMonth() + 1;
-    yyear = date.getFullYear();
+function dategod() {    
+    let day = document.getElementById("day").value;
+    let month = document.getElementById("month").value;
+    let yyear = document.getElementById("yearqq").value;
+    if (flagYear) {
+        if (day < 1 || day >31 || month < 1 || month >12){
+            alert(day)
+            console.log("Введите коректную дату") ;
+            return;     
+
+        }
+    }
+    else {
+        if(yyear < 5){
+            alert("Ведите год больше 5")
+            console.log("Ведите год больше 5") ;
+            return;     
+        }
+    }
     box5.style.display = "flex"
     box4.style.display = "flex"
-    box3.style.display = "none"
+    box3_1.style.display = "none"
+    box3_2.style.display = "none"
     if (month == 1) {
         if (day > 20) {
             countZod = 10
@@ -369,7 +394,7 @@ function dategod() {
 
     }
 
-    countYear = (yyear - 4) % 12
+    countYear = (yyear-4) % 12
 
     Year()
 }
@@ -399,7 +424,8 @@ function predskazania(){
 function yes2() {
     box5.style.display = "none"
     box4.style.display = "none"
-    box3.style.display = "flex"
+    box2.style.display = "flex"
+    ochistka()
 }
 
 function no1() { alert("Жаль а могли бы узнать много нового") }
@@ -408,7 +434,8 @@ function no1() { alert("Жаль а могли бы узнать много но
 function clean() {
     box5.style.display = "none"
     box4.style.display = "none"
-    box2.style.display = "flex"
+    box1.style.display = "flex"
+    ochistka()
 }
 
 function save() {
@@ -456,4 +483,10 @@ function saveAsPDF() {
         'width': 170
     });
     doc.save('sample-file.pdf');
+}
+
+function ochistka(){
+    yearqq.value = ""
+    day.value = ""
+    month.value = ""
 }

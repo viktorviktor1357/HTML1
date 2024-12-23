@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="cod.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="p">
+            <img id="logo" src="logo.jpg" alt="лого">
+            <h1>ПРАКТИЧЕСКАЯ РАБОТА №10(JQ) <br> Цымбалов Жилина СИП-213<br>Tecт</h1>
+        </div>
+        <div class="big" id="box1">
+            <div class="smal">
+                <h1>Введите данные для начала теста</h1>
+                <label for="firstName">Имя:</label>
+                <input type="text" id="firstName" required><br><br>
+
+                <label for="lastName">Фамилия:</label>
+                <input type="text" id="lastName" required><br><br>
+
+                <h3>Выберите вариант теста:</h3>
+                <label>
+                    <select id="variantSelect" required>
+                        <option value="1">Вариант 1</option>
+                        <option value="2">Вариант 2</option>
+                    </select>
+                
+                    <button onclick=" startTest()" id="center">Начать</button>
+            </div>
+        </div>
+</body>
+
+</html>

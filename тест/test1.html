@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="cod.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="p">
+            <img id="logo" src="logo.jpg" alt="лого">
+            <h1>ПРАКТИЧЕСКАЯ РАБОТА №10(JQ) <br> Цымбалов Жилина СИП-213<br>Tecт</h1>
+        </div>
+        <div class="big" id="box2">
+            <div class="smal">
+
+                <h1>
+                    <script>document.write(title)</script>
+                </h1>
+                <h2>
+                    <script>document.write(subtitle)</script>
+                </h2>
+                <form name="quiz">
+                    <script>
+                        let user = JSON.parse(localStorage.user);
+                        variant = user.value
+                        for (var q = 0; q < questions3[variant].length; q++) {
+                            var idx = q + 1;
+                            document.write("<p class='test'><span class='quest'>" + idx + ". " + questions3[variant][q].text + "</span><br>");
+                            for (var i = 0; i < questions3[variant][q].answers.length; i++) {
+                                document.write(`<lable><input type='radio' name='value${q}'` + "onclick='Engine(" + q + "," + i + ")'><span>" + questions3[variant][q].answers[i] + "</span></lable><br>");
+                            }
+                            document.write("</p>")
+                        }
+
+
+                        var yourAns = new Array();
+                        var score = 0;
+
+                        function Engine(question, answer) {
+                            yourAns[question] = answer;
+                        }
+
+                        function Score() {
+                            // Проверка, ответили ли на все вопросы
+                            for (var i = 0; i < questions3[variant].length; i++) {
+                                if (yourAns[i] === undefined) {
+                                    alert("Вы не ответили на все вопросы");
+                                    return; // Прекратить выполнение функции, если есть неотвеченные вопросы
+                                }
+                            }
+                           
+                            var results = []; // Массив для сохранения результатов
+                            var score = 0; // Счетчик правильных ответов
+
+                            // Генерация результатов
+                            for (var i = 0; i < yourAns.length; i++) {
+                                var result = {};
+                                result.question = questions3[variant][i].text;
+                                result.yourAnswer = questions3[variant][i].answers[yourAns[i]];
+                                result.correctAnswer = questions3[variant][i].answers[questions3[variant][i].correctAnswer];
+
+                                if (yourAns[i] == questions3[variant][i].correctAnswer) {
+                                    score++;
+                                    result.isCorrect = true;
+                                } else {
+                                    result.isCorrect = false;
+                                }
+
+                                results.push(result);
+                            }
+                            console.log(result)
+                            // Сохранение результатов и счета в localStorage
+                            localStorage.setItem("results", JSON.stringify(results));
+                            localStorage.setItem("score", score);
+                            localStorage.setItem("totalQuestions", questions3[variant].length);
+
+                            // Переход на страницу с результатами
+                            window.location.href = "final.html";
+                        }
+                    </script>
+                    <br>
+                    
+                </form>
+                <button onclick="Score()">Проверить результаты</button><br>
+                    <button onclick="window.location.href = 'testRegistr.html'">Назад</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

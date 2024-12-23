@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.js" src="jquery-3.7.1 (1).js"></script>
+  <script src="cod.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="p">
+      <img id="logo" src="logo.jpg" alt="лого">
+      <h1>ПРАКТИЧЕСКАЯ РАБОТА №10(JQ) <br> Цымбалов Жилина СИП-213<br>ТРЕНАЖЕР ПАМЯТИ И ВНИМАНИЯ</h1>
+    </div>
+    <div class='box'>
+      <div class="big">
+        <div class="smal" style=" display: flex; flex-direction: column; align-items: center;">
+          <button onclick="start()" id="center">Начало</button>
+          <div>
+            <button id="button1" style="background-color: #FBCEB1">Бежевый</button>
+            <button id="button2" style="background-color: #FF2400">Красный</button>
+            <button id="button3" style="background-color: #44944A">Зеленый</button>
+            <button id="button4" style="background-color: #6A5ACD">Фиолетовый</button><br>
+            <button id="button5" style="background-color: #A5A5A5">Серый</button>
+            <button id="button6" style="background-color: #003153;color: white">Синий</button>
+            <button id="button7" style="background-color: #3D2B1F;color: white#FFDC33">Коричневый</button>
+            <button id="button8" style="background-color: #FFDC33">Желтый</button>
+          </div>
+        </div>
+        <div class="smal">
+          <button onclick="window.location.href='2_title.html'" id="center">Инструкция</button>
+        </div>
+      </div>
+    </div>
+    <div class="box" id="box2" style="display: none">
+      <div class="big">
+        <div class="smal">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col" id="col1" class="colorWhite"></th>
+                <th scope="col" id="col2" class="colorWhite"></th>
+                <th scope="col" id="col3" class="colorWhite"></th>
+                <th scope="col" id="col4" class="colorWhite"></th>
+              </tr>
+              <tr>
+                <th scope="col" id="col5" class="colorWhite"></th>
+                <th scope="col" id="col6" class="colorWhite"></th>
+                <th scope="col" id="col7" class="colorWhite"></th>
+                <th scope="col" id="col8" class="colorWhite"></th>
+              </tr>
+              <tr>
+                <th scope="col" id="col9" class="colorWhite"></th>
+                <th scope="col" id="col10" class="colorWhite"></th>
+                <th scope="col" id="col11" class="colorWhite"></th>
+                <th scope="col" id="col12" class="colorWhite"></th>
+              </tr>
+              <tr>
+                <th scope="col" id="col13" class="colorWhite"></th>
+                <th scope="col" id="col14" class="colorWhite"></th>
+                <th scope="col" id="col15" class="colorWhite"></th>
+                <th scope="col" id="col16" class="colorWhite"></th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="smal" id="box2_2">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col" class="colo"></th>
+                <th scope="col" class="colo"></th>
+                <th scope="col" class="colo"></th>
+                <th scope="col" class="colo"></th>
+              </tr>
+              <tr>
+                <th scope="col" class="colo"></th>
+                <th scope="col" class="colo"></th>
+                <th scope="col" class="colo"></th>
+                <th scope="col" class="colo"></th>
+              </tr>
+              <tr>
+                <th scope="col" class="colo"></th>
+                <th scope="col" class="colo"></th>
+                <th scope="col" class="colo"></th>
+                <th scope="col" class="colo"></th>
+              </tr>
+              <tr>
+                <th scope="col" class="colo"></th>
+                <th scope="col" class="colo"></th>
+                <th scope="col" class="colo"></th>
+                <th scope="col" class="colo"></th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+      <button onclick="result()">результат</button>
+    </div>
+    <div class="box" id="box3" style="display: none">
+      <div class="big">
+        <div class="smal" style="width: 60%;">
+          <h3>Итоги игры</h3>
+          <h1 id="text"></h1>
+          <h2>Вы хотите повторить? Если да,то обновите</h2>
+          <button onclick="start()" id="center">Обновить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

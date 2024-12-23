@@ -1,0 +1,97 @@
+body {
+  font-family: Arial, sans-serif;
+  background-image: url("background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 20PX;
+  padding: 0;
+  color: #333;
+}
+
+.wrapper {
+  border-radius: 10px;
+    width: 1100px;
+    height: 1200px auto;
+    border: 2px solid grey;
+    margin: 5px auto;
+    padding: 5px;
+    background-color: #f0e7ff;
+    color: #333;
+  }
+  .box {
+    width: 80%;
+    margin: auto;
+    background-color: bisque;
+    display: block;
+    border: 2px solid black;
+  }
+
+  .h1,
+  .h2 {
+    text-transform: uppercase;
+    color: #a5251a;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  .smal {
+    margin: 20px auto;
+    width: 45%;
+    text-align: center;
+  }
+
+  .big {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  #logo {
+    width: 10%;
+    height: 10%;
+    margin-left: 20px;
+  }
+  
+  .p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .p h1 {
+    flex-grow: 1;
+    text-align: center;
+    margin-right: 130px;
+  }
+
+  canvas{
+    background-color: rgb(247, 154, 121);
+  }
+
+  .bigB{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border: 2px solid;
+  }
+
+  .small {
+    margin: 20px auto;
+    width: 45%;
+    
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 50%;
+    margin: 20px auto;
+}
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #edddfd;
+}

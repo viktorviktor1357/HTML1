@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>convert</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="cod.js "></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="p">
+            <img id="logo" src="logo.jpg" alt="лого">
+            <h1>ПРАКТИЧЕСКАЯ РАБОТА №9 <br> Цымбалов жилина СИП-213<br>Шар-угадайка</h1>
+        </div>
+        <div class="big" id="box1">
+            <div class="smal">
+                <h1>Угадай число ударов</h1>
+            </div>
+        </div>
+        <div class="big">
+            <div class="smal">
+                <canvas id="canvas1" width="500" height="200"></canvas>
+            </div>
+            <div class="small">
+                <table id="leaderboard">
+                    <thead>
+                        <tr>
+                            <th>Имя</th>
+                            <th>Номер игры</th>
+                            <th>Результат</th>
+                            <th>Разница</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <div class="bigB">
+            <div class="small">
+                <h3>Введите</h3>
+                <h3>Введите Ваше имя <input type="text" id="name"></h3>
+                <h3>Введите колличество секунд <input type="number" id="time"></h3>
+                <h3>Угадай число ударов <input type="number" id="countTarget"></h3>
+                <h3>Введите скорость от 1 до 50 <input type="number" id="speed1"></h3>
+                <h3>Время: <span id="timer"></span> секунд</h3>
+                <h3 id="score">Счет: </h3>
+                <h3 id="end">Итог: </h3>
+            </div>
+            <div class="small">
+            </div>
+        </div>
+        <div class="big">
+            <div class="smal">
+                <button onclick="start()">Старт</button>
+                <button onclick="stop()">Стоп</button>
+            </div>
+        </div>
+
+</body>
+<script>
+    let canvas1 = document.getElementById("canvas1");
+    let ctx = canvas1.getContext("2d")
+    let speed
+    let timeRemaining
+    let gameInterval
+    let timerInterval
+    let score = 0
+    let paddleX = 40
+    let rightFlag = false
+    let name = document.getElementById("name").value
+    let number = 1
+    let flag = true
+    function start() {
+        if (flag){
+        name = document.getElementById("name").value
+        timeRemaining = document.getElementById("time").value
+        let countTarget = document.getElementById("countTarget").value
+        speed = document.getElementById("speed1").value
+        if (name && timeRemaining && countTarget && speed) {
+            if (speed > 0 && speed < 51) {
+                if (name.length > 2 && name.length < 21) {
+                    if (timeRemaining > 3 && timeRemaining < 53) {
+
+                        clearGame()
+                        gameInterval = setInterval(draw, 20);
+                        timerInterval = setInterval(updateTimer, 1000);
+                        document.getElementById("timer").textContent = timeRemaining;
+                    }
+                    else { alert("Введите правильное время") }
+                }
+                else { alert("Введите правильное имя") }
+            }
+            else { alert("Введите правильную скорость") }
+        }
+        else { alert("Заполните все поля") }
+        score = 0
+        document.getElementById("end").innerText = "Итог:"}
+        else{
+            gameInterval = setInterval(draw, 20);
+                        timerInterval = setInterval(updateTimer, 1000);
+        }
+    }
+
+    function clearGame() {
+        clearInterval(gameInterval);
+        clearInterval(timerInterval);
+    }
+
+    function draw() {
+        right()
+        if (rightFlag) {
+            paddleX += parseInt(speed);
+
+        }
+        else if (!rightFlag) {
+            paddleX -= parseInt(speed);
+
+
+        }
+
+        ctx.clearRect(0, 0, 500, 200);
+        ctx.beginPath(); ctx.arc(paddleX, 75, 30, 0, Math.PI * 2, true);
+        ctx.fill();
+    }
+    function right() {
+
+        if (paddleX < 30) {
+            score++;
+            document.getElementById("score").textContent = "Счет: " + score;
+            rightFlag = true;
+
+        }
+        if (paddleX > 470) {
+            score++;
+            document.getElementById("score").textContent = "Счет: " + score;
+            rightFlag = false;
+        }
+
+    }
+    let count = document.getElementById("countTarget").value
+    let mas = ["Абсолютный победитель", "Вы почти угадали", "Вам стоит быть более расчетливым", "Увы, вы проиграли!"]
+    function updateTimer() {
+        count = document.getElementById("countTarget").value
+        timeRemaining--;
+        document.getElementById("timer").textContent = timeRemaining;
+        if (timeRemaining <= 0) {
+            clearGame();
+            ctx.clearRect(0, 0, 500, 200);
+            let countMas = tabl()
+            a = score - count
+            console.log(count)
+            if (a< 0){a -= a*2}
+            leaderboard.innerHTML += ` <tr>
+                                <th>${name}</th>
+                                <th> ${number}</th>
+                                <th> ${score}</th>
+                                <th> ${a}</th>
+                                </tr> `
+            document.getElementById("end").innerText = "Итог: " + mas[countMas]
+            number++
+            flag = true
+        }
+
+
+    }
+
+
+
+    function tabl() {
+        if (score - count == 0) { return 0 }
+        else if (score - count >= -3 && score - count <= +3) { return 1 }
+        else if (score - count >= -6 && score - count <= +6) { return 2 }
+        else { return 3 }
+    }
+
+    function stop() {
+        flag = false
+        clearInterval(gameInterval);
+        clearInterval(timerInterval);
+    }
+</script>
+
+</html>

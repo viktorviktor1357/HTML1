@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Результаты</title>
+  <style>
+    h1 {
+      color: #333;
+    }
+
+    .correct {
+      color: green;
+    }
+
+    .incorrect {
+      color: red;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div style="font-size: 2em">
+      <span id="myname"></span> <span id="myname2"></span>, вы решили <span id="qq"></span> <br />Это составляет
+      <span id="procv"></span> от общего результата
+
+      <div class="progress-wrapper">
+        <div class="smal">
+          <div id="myProgress">
+            <div id="myBar"><span id="bar">20%</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h1>Ваши результаты</h1>
+    <div id="results"></div>
+    <h2 id="finalScore"></h2>
+    <button onclick="window.location.href = 'testRegistr.html'">Вернуться на главную страницу</button>
+
+    <script>
+      var name = JSON.parse(localStorage.getItem("firstname"));
+      var sname = JSON.parse(localStorage.getItem("secondname"));
+      myname.textContent = name;
+      myname2.textContent = sname;
+
+      // Извлекаем данные из localStorage
+      var results = JSON.parse(localStorage.getItem("results"));
+      var score = localStorage.getItem("score");
+      var totalQuestions = localStorage.getItem("totalQuestions");
+
+      // Генерация HTML-контента
+      var resultsContainer = document.getElementById("results");
+      var finalScore = document.getElementById("finalScore");
+
+      var output = "";
+      results.forEach((result, index) => {
+        output += "<h3>Вопрос №" + (index + 1) + ":</h3>";
+        output += "<p><strong>" + result.question + "</strong></p>";
+        if (result.isCorrect) {
+          output += "<p class='correct'>Верно! Ваш ответ: " + result.yourAnswer + "</p>";
+        } else {
+          output += "<p class='incorrect'>Неправильно. Ваш ответ: " + result.yourAnswer + "</p>";
+          output += "<p>Правильный ответ: " + result.correctAnswer + "</p>";
+        }
+      });
+
+      resultsContainer.innerHTML = output;
+      finalScore.innerHTML = "Ваш результат: " + score + " из " + totalQuestions;
+      qq.innerHTML = score + " из " + totalQuestions;
+
+      let width = parseInt(score) * 20
+      bar.innerText = width + "%";
+      myBar.style.width = width + "%"
+
+      console.log(width);
+
+      // Отображение процентов в полукруге
+      const progressCircle = document.getElementById("progressCircle");
+      const circlePercentage = document.getElementById("circlePercentage");
+    </script>
+  </div>
+</body>
+
+</html>
